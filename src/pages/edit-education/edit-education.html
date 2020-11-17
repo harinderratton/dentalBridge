@@ -1,0 +1,236 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Edit Education</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ng-container *ngIf="address">
+
+	        <div form-group>
+               <label>Education ID</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-pricetags-outline"></ion-icon></ion-label>
+                  <ion-input  type="text" value="{{address.id}}" readonly disabled></ion-input>
+               </ion-item>
+             </div> 
+			  <div form-group>
+               <label>Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input  type="text" value="{{customer.displayName}}" readonly disabled></ion-input>
+               </ion-item>
+             </div> 
+            <div form-group>
+               <label>Email</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                  <ion-input  type="text" value="{{customer.email}}" readonly disabled></ion-input>
+               </ion-item>
+             </div> 
+			 <div form-group>
+               <label>Gender</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input  type="text" value="{{customer.europeResult}}" readonly disabled></ion-input>
+               </ion-item>
+             </div> 
+			 <div form-group>
+               <label>Birthday</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-calendar-outline"></ion-icon></ion-label>
+                  <ion-input  type="text" value="{{customer.birthday}}" readonly disabled></ion-input>
+               </ion-item>
+             </div> 
+			
+			<div form-group>
+			<label>Job Category </label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-pricetags-outline"></ion-icon>
+			</ion-label>
+		       <ion-select [(ngModel)]="address.jobcategory"  name="jobcategory" placeholder="Select">
+               <!-- <ion-option *ngFor="let item of jobCategoryName" value="{{item.name}}">{{item.name}}</ion-option> -->
+               <ion-option value="System Analysists">System Analysists</ion-option> 
+               <ion-option value="Accounting">Accounting</ion-option> 
+               <ion-option value="It Engineer">It Engineer</ion-option> 
+
+               </ion-select>
+			</ion-item>
+			</div>
+      <div form-group>
+			<label>Education </label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-document-outline"></ion-icon>
+			</ion-label>
+		    <ion-select [(ngModel)]="address.education"  name="education" placeholder="Select Your Education">
+               <!-- <ion-option *ngFor="let item of educationName" value="{{item.name}}">{{item.name}}</ion-option> -->
+               <ion-option value="Bachelor">Bachelor</ion-option> 
+               <ion-option value="Masters">Masters</ion-option> 
+               <ion-option value="Doctors">Doctors</ion-option> 
+               </ion-select>
+			</ion-item>
+			</div>
+			 <div form-group>
+			<label>University Started </label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-calendar-outline"></ion-icon>
+			</ion-label>
+		   <ion-select [(ngModel)]="address.started"  name="started" placeholder="Select">
+               <!-- <ion-option *ngFor="let item of startedYear" value="{{item.name}}">{{item.name}}</ion-option> -->
+               <ion-option value="2014">2014</ion-option> 
+               <ion-option value="2015">2015</ion-option> 
+               <ion-option value="2016">2016</ion-option> 
+               <ion-option value="2017">2017</ion-option> 
+               <ion-option value="2018">2018</ion-option> 
+               <ion-option value="2019">2019</ion-option> 
+               </ion-select>
+			</ion-item>
+			</div>
+        <div form-group>
+			<label>University Finished </label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-calendar-outline"></ion-icon>
+			</ion-label>
+		   <ion-select [(ngModel)]="address.finished"  name="finished"  placeholder="Select">
+               <!-- <ion-option *ngFor="let item of finishedYear" value="{{item.name}}">{{item.name}}</ion-option> -->
+             
+               <ion-option value="2017">2017</ion-option> 
+               <ion-option value="2018">2018</ion-option> 
+               <ion-option value="2019">2019</ion-option> 
+               </ion-select>
+			</ion-item>
+			</div>
+			 <div form-group>
+			<label>Worked Year</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-briefcase-outline"></ion-icon>
+			</ion-label>
+		    <ion-select [(ngModel)]="address.worked"  name="worked" placeholder="Select">
+               <!-- <ion-option *ngFor="let item of workedYear" value="{{item.name}}">{{item.name}}</ion-option> -->
+               <ion-option value="4">4 years</ion-option> 
+               <ion-option value="5">5 years</ion-option> 
+               <ion-option value="7">7 years</ion-option> 
+             
+               </ion-select>
+			</ion-item>
+			</div>
+			
+			 <div form-group>
+			<label>Minimum Salary In $</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-cash-outline"></ion-icon>
+			</ion-label>
+		    <ion-input type="text" [(ngModel)]="address.minimum" name="minimum" ></ion-input>
+			</ion-item>
+			</div>
+			<div form-group>
+			<label>Maximum Salary In $</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-cash-outline"></ion-icon>
+			</ion-label>
+		    <ion-input type="text" [(ngModel)]="address.maximum" name="maximum" ></ion-input>
+			</ion-item>
+			</div>
+			 <div class="error-message">
+           <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+       </div>
+<button round ion-button btnsubmit text-uppercase block color="secondary" [disabled]="disableSubmit" (click)="updateEducation(address.id,address,customer)">{{"Save" | translate}}</button>
+</ng-container>
+<!--div *ngIf="address" >
+
+
+        <ion-item style = "background-color : #98EA69;">
+			  <p ><b>Education ID: {{address.id}}</b></p>
+			 
+         </ion-item>
+
+	  <ion-item style = "background-color : #98EA69;">
+			  <p ><b>Customer name: {{customer.displayName}}</b></p>
+			 
+         </ion-item>
+         <ion-item style = "background-color : #98EA69;">
+		 <p ><b>Customer email: {{customer.email}}</b></p>
+		
+         </ion-item>
+		 
+		  <ion-item style = "background-color : #98EA69;">
+		 <p ><b>Gender: {{customer.europeResult}}</b></p>
+	
+         </ion-item>
+		 
+		   <ion-item style = "background-color : #98EA69;">
+		 <p ><b>Birthday: {{customer.birthday}}</b></p>
+	
+         </ion-item>
+   
+          <ion-list style = "margin:15px 5px 5px 5px;">
+            <p style = "color:red;">Job Category: {{address.jobcategory}}</p>
+		   <ion-item  class="option" style = "background-color : #98EA69;">
+               <ion-label>{{address.jobcategory}}</ion-label>
+               <ion-select [(ngModel)]="address.jobcategory"  name="jobcategory">
+               <ion-option *ngFor="let item of jobCategoryName" value="{{item.name}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+			<p  style = "color:red;">Education: {{address.education}}</p>
+			<ion-item  class="option" style = "background-color : #98EA69;">
+               <ion-label>{{address.education}}</ion-label>
+               <ion-select [(ngModel)]="address.education"  name="education">
+               <ion-option *ngFor="let item of educationName" value="{{item.name}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+			<p  style = "color:red;">University Started: {{address.started}}</p>
+			<ion-item  class="option" style = "background-color : #98EA69;">
+               <ion-label>{{address.started}}</ion-label>
+               <ion-select [(ngModel)]="address.started"  name="started">
+               <ion-option *ngFor="let item of startedYear" value="{{item.name}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+			<p  style = "color:red;">University Finished: {{address.finished}}</p>
+			<ion-item  class="option" style = "background-color : #98EA69;">
+               <ion-label>{{address.finished}}</ion-label>
+               <ion-select [(ngModel)]="address.finished"  name="finished">
+               <ion-option *ngFor="let item of finishedYear" value="{{item.name}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+				<p  style = "color:red;">Worked Year {{address.worked}}</p>
+			<ion-item  class="option" style = "background-color : #98EA69;">
+               <ion-label>{{address.worked}}</ion-label>
+               <ion-select [(ngModel)]="address.worked"  name="worked">
+               <ion-option *ngFor="let item of workedYear" value="{{item.name}}">{{item.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+			
+			<ion-item >
+            <ion-label  style = "color:red;">Minimum salary: </ion-label>
+            <ion-input type="text" [(ngModel)]="address.minimum" name="minimum" ></ion-input>
+         </ion-item>
+		 
+		 
+		 
+         <ion-item  >
+            <ion-label  style = "color:red;" >Maximum salary: </ion-label>
+            <ion-input type="text" [(ngModel)]="address.maximum" name="maximum" ></ion-input>
+         </ion-item>
+			
+			
+	
+      </ion-list>
+       <div class="error-message">
+           <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+       </div>
+      <button ion-button no-margin item-right full color="shadow" [disabled]="disableSubmit" (click)="updateEducation(address.id,address,customer)">{{"Save" | translate}}</button>
+   </div-->
+</ion-content>

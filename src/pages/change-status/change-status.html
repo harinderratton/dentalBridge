@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Change Status</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+ <div form-group>
+               <label>Status</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-pricetags-outline"></ion-icon></ion-label>
+                 <ion-select [(ngModel)]="tech.status" name="status">
+            <ion-option *ngFor="let item of restaurantName.items" value="{{item.id}}">{{item.name}}</ion-option>
+            </ion-select>
+               </ion-item>
+             </div> 
+	<!--ion-item style="padding-top:10px" class="option">
+            <ion-label>Status</ion-label>
+
+            <ion-select [(ngModel)]="tech.status" name="status">
+            <ion-option *ngFor="let item of restaurantName.items" value="{{item.id}}">{{item.name}}</ion-option>
+            </ion-select>
+         </ion-item-->
+		   <div login-btn>
+               <button  round ion-button block color="secondary" (click)="updateToWorker(tech)">Save status</button>
+            </div>
+		
+
+</ion-content>

@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-navbar color="primary">
+	<button ion-button menuToggle> 
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{"Profile" | translate}}</ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<ion-content>
+<div profileinfo>
+<div profileimg>
+  <img src="assets/img/bg-profile.jpg"/>
+</div>
+<div userimg>
+  <label for="editphoto">
+     <ion-icon name="ios-create-outline"></ion-icon>
+  </label>
+  <input (change)="onChange($event)" type="file" id="editphoto"  name="editphoto" style="display:none;"/> 
+<ng-container *ngIf="userProfiles.photoURL">
+            <img src="{{userProfiles.photoURL}}" width="80" height="80" >
+         </ng-container>
+         <ng-container *ngIf="!userProfiles.photoURL" >
+            <img src="{{values.avatar}}" width="80" height="80">
+         </ng-container>
+<h2>{{userProfiles.displayName}} {{userProfiles.lastName}}</h2>
+</div>
+</div>
+<div profilesetting>
+     <ion-segment [(ngModel)]="profiletab" mode="md">
+		<ion-segment-button value="Basic">
+		   Basic Info
+		</ion-segment-button>
+			<ion-segment-button value="pwd" *ngIf="!userProfiles.facebook">
+		   Change Password
+		</ion-segment-button>
+  </ion-segment>
+
+    <div [ngSwitch]="profiletab">
+	<ion-list *ngSwitchCase="'Basic'">
+	<form #f="ngForm">
+            
+             <div form-group>
+               <label>First Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input placeholder="Enter First Name" type="text" [(ngModel)]="userProfiles.displayName" name="first_name"></ion-input>
+               </ion-item>
+             </div> 
+			    <div form-group>
+               <label>Last Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                 <ion-input placeholder="Enter Last Name"  type="text" [(ngModel)]="userProfiles.lastName" name="last_name"></ion-input>
+               </ion-item>
+             </div> 
+			   <div form-group>
+               <label>Email Address</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                 <ion-input  placeholder="Enter Email Address" type="email" [(ngModel)]="userProfiles.email" name="email"></ion-input>
+               </ion-item>
+             </div> 
+			 <div form-group>
+			<label>Phone Number</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-call-outline"></ion-icon>
+			</ion-label>
+			<ion-input required type="text" placeholder="Enter Phone Number" [(ngModel)]="userProfiles.phone" name="phone"></ion-input>
+			</ion-item>
+			</div>
+		    	<div form-group>
+				<label>Company Name</label>
+				<ion-item lines="none">
+				<ion-label>
+				<ion-icon name="ios-briefcase-outline"></ion-icon>
+				</ion-label>
+				<ion-input type="text" placeholder="Enter Company Name" [(ngModel)]="userProfiles.company" name="company"></ion-input>
+				</ion-item>
+				</div>
+				<div form-group>
+<label>Are You a Recruiter </label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="userProfiles.is_recruiter" name="is_recruiter" placeholder="Select">
+				 <ion-option value="yes"> Yes  </ion-option>
+				 <ion-option value="no">  No    </ion-option>
+				</ion-select>
+</ion-item>
+</div>
+<div form-group>
+<label>Company Size</label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="userProfiles.company_size" name="company_size" placeholder="Select Company Size">
+				  <ion-option value="1-15"> 1 - 15 </ion-option>
+         <ion-option value="16-50"> 16 - 50 </ion-option>
+         <ion-option value="51-100"> 51 - 100 </ion-option>
+				</ion-select>
+</ion-item>
+</div>
+
+<div class="error-message">
+   <ion-label color="danger" text-wrap>{{errorRegisterMessage}}</ion-label>
+</div>
+  <button round ion-button btnsubmit text-uppercase block color="secondary" [disabled]="disableRegister" (click)="updateProfile()">{{buttonText}}
+  </button>
+
+</form>
+	
+	
+	
+	</ion-list>
+		<ion-list *ngSwitchCase="'pwd'" >
+	<ng-container *ngIf="!userProfiles.facebook">
+    <form #f="ngForm">
+
+      <div form-group>
+        <label>{{"Current Password" | translate}}</label>
+         <ion-item>
+           <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+            <ion-input required type="password" placeholder="Enter Current Password"  [(ngModel)]="oldPassword" name="oldPassword"></ion-input>
+        </ion-item>
+     </div> 
+
+
+ 
+   <div form-group>
+           <label>{{"New Password" | translate}}</label>
+            <ion-item>
+               <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+               <ion-input required type="password" placeholder="Enter New Password"  [(ngModel)]="newPassword" name="password"></ion-input>
+           </ion-item>
+  </div> 
+
+
+  <div form-group>
+    <label>{{"Confirm Password" | translate}}</label>
+     <ion-item>
+       <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+       <ion-input required type="password" placeholder="Confirm Password"  [(ngModel)]="confirmPassword" name="password"></ion-input>
+    </ion-item>
+  </div> 
+
+
+ 
+      <ion-item lines="none">
+          <p class="errorMsg" style="color: red">{{passwordError}}</p>
+      </ion-item>
+
+  <button round ion-button btnsubmit text-uppercase block color="secondary" (click)="changePassword1(form)">
+    
+    <div>{{"ChangePassword" | translate}}</div>
+  </button>
+
+        
+     </form>
+
+
+</ng-container>
+	
+	</ion-list>
+	</div>
+	 </div> 
+ 
+</ion-content>

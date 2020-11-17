@@ -1,0 +1,36 @@
+
+<ion-content padding class="animated fadeIn login auth-page" >
+  <div class="login-content" *ngIf="is_loaded">
+<div logo>
+  <img src="assets/img/logo.png"/>
+  <h2>Welcome Back!!</h2>
+  <h2>Choose your role</h2>
+</div>
+   <div login-btn>
+ 
+      <button round medium icon-start block ion-button color="secondary" tappable (click)="redirect(1)">
+    
+        Job Seeker
+      </button>
+ 
+    </div>
+
+    <br>
+   <div login-btn>
+ 
+    <button round medium icon-start block ion-button color="secondary" tappable (click)="redirect(2)">
+   
+    
+     Job Manager
+    </button>
+
+  </div>
+ 
+ 
+
+  </div>
+
+
+  <p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="!is_loaded">Loading...</p>
+
+</ion-content>

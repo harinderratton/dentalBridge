@@ -1,0 +1,72 @@
+page-list {
+.search
+{margin-bottom: 15px;
+ ion-searchbar
+{
+ padding: 0px;
+ .searchbar-clear-icon{
+    right: 40px;
+}
+ .searchbar-search-icon 
+ {
+    right: 16px;
+    top: 14px;
+    left: initial;
+    color: #d1cfcf;
+}
+input.searchbar-input {
+    font-size: 16px;
+    line-height: 34px !important;
+    background: $white;    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    color: #d1cfcf;
+	padding-left:20px!important;
+	padding-right:20px!important;
+    border-radius: 30px;
+}
+}
+}
+
+
+	ion-card {
+margin: 0 0 15px!important;
+    position: relative;
+    text-align: center;
+    border-radius: 8px!important;
+    width: 100%!important;
+	&:after
+	{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+     z-index: 1;
+    background: rgba(0 ,0, 0 , 0.4);  
+	}
+	img
+	{
+	 height: 175px;
+     object-fit: cover;
+	}
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+	z-index:9;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: yellow;
+  }
+}
+

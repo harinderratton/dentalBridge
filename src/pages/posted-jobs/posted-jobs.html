@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+   <button ion-button menuToggle>
+		  <ion-icon name="menu"></ion-icon>
+		</button>
+    <ion-title>Jobs</ion-title>
+	   <ion-buttons end (click)="goToAddJob()">
+	   <button ion-button postjob round >
+		Post Job
+		</button>
+		</ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<p *ngIf="!is_loaded">Loading...</p>
+<ion-list *ngIf="is_loaded">
+  <ion-item-sliding *ngFor="let location of locations">
+    <ion-item>
+      <ion-thumbnail item-start>
+         <img src="{{location.face}}">
+      </ion-thumbnail>
+      <h2 (click)="goToJobDetails(location)">{{location.name}}</h2>
+	  <p address><img src="assets/img/building.png"/><span>{{location.address}}</span></p>
+		<p briefcase><img src="assets/img/briefcase.png"/><span>Experience:  {{location.experience}}</span></p>
+		<ion-row salary-apply>
+		 <ion-col  col-6>
+		   <!-- <ion-badge>${{location.minsalary}} - ${{location.maxsalary}}
+		   </ion-badge> -->
+		 </ion-col>
+		  <ion-col  col-6 class="btn-right">
+		   <button round ion-button (click)="goToJobDetails(location)">View Detail</button>
+		 </ion-col>
+		</ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="edit(location)" color="secondary">
+        Edit
+      </button>
+	    <button ion-button (click)="deleteJob(location)" color="danger">
+        Delete
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-item *ngIf="locations == ''">
+  No jobs posted yet.
+  </ion-item>
+</ion-list>
+
+
+<!--ion-list>
+  <ion-item *ngFor="let location of locations">
+    <ion-thumbnail item-start>
+      <img src="{{location.face}}">
+    </ion-thumbnail>
+    <h2>{{location.name}}</h2>
+    <p>Posted • </p>
+	<p><b>{{location.timeStamp | date}}</b></p>
+	<p>Expired • </p>
+	<p><b>{{location.localdate}}</b></p>
+	{{location.minsalary}} - {{location.maxsalary}}
+	{{location.address}}
+	
+    <button ion-button clear item-end (click)="goToJobDetails(location)">View</button>
+
+	
+	  <ion-icon icon-big item-right  name="construct" color = "primary" (click)="edit(location)" style="position:relative; font-size:2em;float:right;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>	
+	  
+	  <ion-icon icon-big item-right  name="trash" color = "primary" (click)="deleteJob(location)" style="position:relative; font-size:2em;float:right;padding-right:5px;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+	
+  </ion-item>
+</ion-list-->
+
+
+</ion-content>

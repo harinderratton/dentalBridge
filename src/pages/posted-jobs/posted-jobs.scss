@@ -1,0 +1,107 @@
+page-posted-jobs {
+    ion-header
+    {
+    [postjob] {
+        border: 2px solid $white;
+        color:$white!important;
+        border-radius: 30px;
+        font-size: 12px;
+        padding: 0px 10px;
+    }
+    }
+    ion-content
+    {
+    background:$grey3  url(../../assets/img/bg-grey.jpg) ;
+    /*background-position: -160px -65px;*/
+        background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    ion-list
+    {background:transparent;
+      padding:0px;
+     ion-item-sliding
+     {border-radius: 8px; 
+           margin-bottom: 15px!important;
+            padding: 0px!important;
+       ion-item
+       { padding: 0px!important;
+           ion-thumbnail
+            {   width: 90px;
+        height: 100%;min-height: 120px!important;
+        margin: 0px!important;
+        position:relative;
+    img {
+        width: 100%!important;
+        height: 100%!important;
+        min-height: 120px;    object-fit: cover;
+    }
+    }
+          .item-inner
+          {    padding-right: 0!important;
+            border:none!important;
+          ion-label
+            {    white-space: normal;margin: 11px 0px 11px 0!important;
+            
+               padding-left: 8px;
+                h2
+                {
+                       margin: 0px 0px 7px!important;    padding-right: 5px;
+        font-size: 15px!important;
+        color: $black3;
+        font-weight: 600!important;
+                }
+                    p
+                { margin-top: 5px;    padding-right: 5px;
+                line-height: 1.25;
+                font-size: 12px;
+                display:flex;
+                img
+                {
+                    height: 16px;
+                    min-width: 14px;
+                    margin-right: 5px;
+                }
+                &[address]
+                {
+                color:$black4;
+                }
+                &[briefcase]
+                {    align-items: center;
+                color:$grey4;
+                }
+                }
+                [salary-apply]
+            {    margin-top: 5px;
+            .btn-right {
+        text-align: right;
+    }
+             ion-col
+             {
+              padding:0px;
+             }
+             ion-badge {margin-top: 5px;
+                    background:$ltblue;
+                    color:$primary;
+                    padding: 4px 10px;    font-size: 12px;
+                    font-weight: 500;
+                    border-radius: 30px;
+                
+                }
+                button
+                {    height: 25px;
+        padding: 0 12px;
+                margin-bottom: 0px;    font-size: 12px;
+                margin-right: 0px;
+                background: $bggradient;
+                text-transform: capitalize;
+                border-radius: 30px 0px 0px 30px;
+                }
+            }
+            }
+          }
+       }
+     }
+    }
+    }
+    }
+    

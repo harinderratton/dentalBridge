@@ -1,0 +1,124 @@
+.ios,.md{
+
+	page-view-profile {
+  [jobinfo]
+ {text-align:Center;
+ h2 {
+ color:$black3;
+    margin-top: 5px;
+	margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 500;
+	padding:0px 15px;
+} p
+			{ margin-top: 5px;    
+            line-height: 1.25;padding:0px 15px;
+			font-size: 13px;margin-bottom: 7px;
+			display:flex;justify-content: center;
+}	[userimg]
+ { 	
+position: relative;
+ text-align: center;
+    margin-top: -40px;
+
+	
+	   img
+	   {box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	   width:100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    margin: 0 auto;
+    text-align: center;
+	   }
+ }
+
+
+ [jobimg]
+ {   
+ position: relative;
+    background: #f7f7f7;
+   height:100px;
+   ion-badge
+   {
+       position: absolute;
+    right: 17px;
+    top: 17px;
+	background: $ltblue;
+				color: $primary;
+				padding: 6px 12px;    font-size: 13px;
+				font-weight: 500;
+				border-radius: 30px;
+   }
+   img
+   {
+     max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position:bottom;
+   }
+ }
+ 
+  }
+   [jobdetail]
+ {    
+    padding: 0px 15px;
+    margin-top: 15px;
+    margin-bottom: 22px;
+		[ accept-reject]
+	{margin-top: 5px;    text-align: center;
+	button
+	{
+   
+   box-shadow: none;
+	
+	}
+	} 
+	[joblist]
+ {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: $white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+ion-item {
+    ion-icon
+	{
+	color:$primary;
+	font-size: 25px;
+	margin: 0;
+	}   
+	padding: 0px;
+    border-bottom: 2px solid $ltgrey;
+	.item-inner
+	{
+	 margin-left: 0;
+	 border:none;
+	}
+	ion-label
+	{
+	 margin-left:10px;
+	 h2{
+	 margin-bottom: 4px;
+	 }
+	
+	 p
+	 {
+	 span
+	 {display: inline-block;
+	background: $secondary;
+    color: $white;
+    padding: 2px 10px;
+    border-radius: 4px;
+	 }
+	 }
+	}
+}
+
+}
+	
+ }
+  }
+
+}

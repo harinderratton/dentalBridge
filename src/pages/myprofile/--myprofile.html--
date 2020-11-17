@@ -1,0 +1,123 @@
+<ion-header>
+	<ion-navbar color="primary" text-center>
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	  </button>  
+	  <ion-title>My Profile</ion-title>
+	</ion-navbar>
+  </ion-header>
+
+
+
+<ion-content parallax style = "background-color : #DCF7C2;">
+  <div class="bg">
+  </div>
+
+  <div class="main-cnt">
+  <!--
+    <img src="../assets/img/dp.jpg" class="dp">
+	-->
+	
+	
+
+         <div *ngIf="userProfiles.photoURL" style = "margin-top:-200px;">
+            <img src="{{userProfiles.photoURL}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;background:none;" class="circle-pic">
+         </div>
+         <div *ngIf="!userProfiles.photoURL" style = "margin-top:-200px;">
+            <img src="{{values.avatar}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;background:none;" class="circle-pic">
+         </div>
+
+      <h3 text-center style = "color: white;">{{userProfiles.displayName}} {{userProfiles.lastName}}</h3>  
+	  
+      
+
+	
+    <ion-list no-lines>
+	
+	
+      <ion-item>
+	  
+        <ion-icon name="contacts" item-start></ion-icon>
+        Email: {{userProfiles.email}}
+        
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-facebook" item-start></ion-icon>
+        Gender: {{userProfiles.europeResult}}
+        
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-instagram" item-start></ion-icon>
+        Birthday: {{userProfiles.birthday}}
+        
+      </ion-item>
+	  
+
+	  
+	  
+	 
+	  
+	  
+	    <ion-item>
+	  <button ion-button icon-left (click)="myOrder()" clear big>
+        <ion-icon name="folder"></ion-icon>
+        {{"My All Education" | translate}}
+      </button>
+	  </ion-item>
+	  
+	  	  <ion-item>
+	  <button ion-button icon-left  (click)="address(userProfiles)" clear big>
+        <ion-icon name="build"></ion-icon>
+        {{"Add new Education " | translate}}
+      </button>
+	  </ion-item>
+	  
+	 
+	  
+	  <ion-item>
+               <ion-thumbnail *ngIf="downloadURL != null">
+                  <img src="{{downloadURL}}">
+               </ion-thumbnail>
+               <input type="file" name="Choose File" (change)="onChange($event)">
+            </ion-item>
+	  
+	  <!--
+	  	  <ion-item>
+	  <button ion-button icon-left  (click)="goToPassword()" clear big>
+        <ion-icon name="build"></ion-icon>
+        {{"Change Password " | translate}}
+      </button>
+	  </ion-item>
+	  -->
+	  
+	  
+	  
+	
+	  
+    </ion-list>
+	
+	
+	  <div class="error-message">
+           <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+        </div>
+      <button ion-button block color="secondary" [disabled]="disableSubmit" (click)="addProduct()">Save</button>
+	<!--
+	 <ion-card style = "background-color:#D2F5E5" *ngIf="!userProfiles.facebook">
+         <form #f="ngForm" style = "background-color:#D2F5E5">
+            <ion-list style = "background-color:#D2F5E5">
+				<ion-item style = "background-color:#D2F5E5">
+                  <ion-label floating style ="background-color:white;">{{"Password" | translate}}</ion-label>
+                  <ion-input required type="password" [(ngModel)]="form.password" name="password"></ion-input>
+               </ion-item>
+            </ion-list>
+      <button ion-button icon-left (click)="changePassword(form)" clear big>
+        
+        <div>{{"ChangePassword" | translate}}</div>
+      </button>
+
+            
+         </form>
+      </ion-card>
+	  -->
+  </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<div notifications *ngIf="!is_loaded">Loading...</div>
+<div notifications *ngIf="is_loaded">
+	  <ng-container *ngFor="let notis of notifications">
+		  <ion-item (click)="goToJobs()">
+			 <ion-avatar item-start>
+			   <img *ngIf="errors.indexOf(notis.photoURL) == -1" src="{{notis.photoURL}}"/>
+			   <img *ngIf="errors.indexOf(notis.photoURL) >= 0" src="assets/images/person.png"/>
+			 </ion-avatar>
+			 <p> <a href="javascript:void(0)">{{notis.displayName}} {{notis.lastName}}</a>  applied for {{notis.data_params.job}} job in {{notis.data_params.city}} city.</p>
+			 <ion-note><ion-icon name="time-outline"></ion-icon> {{notis.date | timeAgo}}</ion-note>
+		  </ion-item>
+	  </ng-container>
+	  <ion-item *ngIf="notifications == ''">
+	    No notifications yet.
+	  </ion-item>
+	</div>
+</ion-content>

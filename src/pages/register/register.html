@@ -1,0 +1,166 @@
+<ion-header headertrans>
+  <ion-navbar color="white">
+    <!--ion-title>Register</ion-title-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<div class="register-form" >
+<div logo>
+ <h1>Create Account</h1>
+  <h2>Create a new account</h2>
+</div>
+      <!--ion-card-->
+         <form #f="ngForm">
+            <ion-list>
+               <div form-group>
+				   <label>First Name</label>
+					<ion-item>
+					  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+					  <ion-input required type="text"  placeholder="Enter First Name" [(ngModel)]="form.firstName" name="firstname"></ion-input>
+				   </ion-item>
+               </div> 
+			   <div form-group>
+				   <label>Last Name</label>
+					<ion-item>
+					  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+					  <ion-input required type="text" placeholder="Enter Last Name"  [(ngModel)]="form.lastName" name="lastname"></ion-input>
+				   </ion-item>
+               </div>
+			  <div form-group>
+               <label>Email Address</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                <ion-input required  placeholder="Enter Email Address" type="email" [(ngModel)]="form.email" name="email"></ion-input>
+               </ion-item>
+             </div> 
+			<div form-group>
+		      	<label>Phone Number</label>
+                  <ion-item lines="none">
+               <ion-label>
+               <ion-icon name="ios-call-outline"></ion-icon>
+               </ion-label>
+                  <ion-input required type="number"  placeholder="Enter Phone Number" [(ngModel)]="form.phone" name="phone"></ion-input>
+               </ion-item>
+			</div>
+				<div form-group>
+            <label>Profession </label>
+            <ion-item lines="none">
+            <ion-label>
+            <ion-icon name="ios-person-outline"></ion-icon>
+            </ion-label>
+            <ion-select  placeholder="Select Your Profession" [(ngModel)]="form.profession" name="profession">
+                        <ion-option value="1"> Dental Assistant  </ion-option>
+                        <ion-option value="2">  Dental Hygienist    </ion-option>
+                        <ion-option value="3">  Dentist     </ion-option>
+                        </ion-select>
+            </ion-item>
+         </div>
+			<div form-group>
+               <label>Miles From Their Vicinity</label>
+                  <ion-item lines="none">
+               <ion-label>
+                  <ion-icon name="ios-speedometer-outline"></ion-icon>
+               </ion-label>
+                   <ion-input required type="number"  placeholder="Enter Miles"  [(ngModel)]="form.miles" name="miles"></ion-input>
+               </ion-item>
+			</div>
+			<div form-group>
+               <label>Gender </label>
+               <ion-item lines="none">
+                  <ion-label>
+                      <ion-icon name="ios-person-outline"></ion-icon>
+                  </ion-label>
+
+                  <ion-select [(ngModel)]="form.europe"  name="europe" placeholder="Select">
+                     <ion-option *ngFor="let result of europe.items" value="{{result.id}}">{{result.name}}</ion-option>
+                  </ion-select>
+               </ion-item>
+         </div>
+			 
+			<div form-group>
+		      	<label>Birthday</label>
+               <ion-item lines="none">
+               <ion-label>
+                    <ion-icon name="ios-calendar-outline"></ion-icon>
+               </ion-label>
+                     <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date" name="something"></ion-datetime>
+               </ion-item>
+			</div>
+			<div form-group>
+               <label>Password</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+				  <ion-input required placeholder="Enter Password"  type="password" [(ngModel)]="form.password" name="password"></ion-input>
+               </ion-item>
+             </div> 
+               <!--ion-item>
+                  <ion-label floating>First Name</ion-label>
+                  <ion-input required type="text" [(ngModel)]="form.firstName" name="firstname"></ion-input>
+               </ion-item>
+               <ion-item>
+                  <ion-label floating>Last Name</ion-label>
+                  <ion-input required type="text" [(ngModel)]="form.lastName" name="lastname"></ion-input>
+               </ion-item>
+               <ion-item>
+                  <ion-label floating>Email</ion-label>
+                  <ion-input required type="email" [(ngModel)]="form.email" name="email"></ion-input>
+               </ion-item>
+			   
+               <ion-item>
+                  <ion-label floating>Password</ion-label>
+                  <ion-input required type="password" [(ngModel)]="form.password" name="password"></ion-input>
+               </ion-item-->
+			   
+			   
+			   
+			 
+			   
+			 <!--ion-item style="padding-top:10px" class="option">
+               <ion-label>GENDER</ion-label>
+               <ion-select [(ngModel)]="form.europe"  name="europe">
+               <ion-option *ngFor="let result of europe.items" value="{{result.id}}">{{result.name}}</ion-option>
+               </ion-select>
+            </ion-item>
+			
+			
+
+  <div class="order" style = "margin-top:10px;">
+      
+      <div class="select-box">
+        <ion-item class="data-holder">
+          <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="date" name="something"></ion-datetime>
+          <ion-label><ion-icon name="person" class="icons">Birthday</ion-icon></ion-label>
+		  
+        </ion-item>
+      </div>
+    </div-->
+			   
+            </ion-list>
+
+            <ion-item lines="none">
+               <p class="errorMsg"  style="color: red">{{errorRegisterMessage}}</p>
+            </ion-item>
+
+            <!-- <div class="error-message">
+               <ion-label color="danger" text-wrap>{{errorRegisterMessage}}</ion-label>
+            </div> -->
+
+            <div login-btn>
+               <button round ion-button block color="secondary" type="submit" class="button button-block button-default" text-uppercase [disabled]="disableRegister" (click)="register()">{{buttonText}}</button>
+            </div>
+			<div btn-signup class="ion-text-center">
+<p>Alreay have an account ? <a (click)="goToLogin()" href="javascript:void(0)">Login Here</a></p>
+
+</div>
+			<div btn-facebook > 
+  <button round medium icon-start block ion-button class="btn-facebook" (click)="facebookRestaurantLogin()">
+              <span fb-icon><img src="assets/img/fb.png"/></span>  Login With Facebook
+            </button>
+</div>
+         </form>
+      <!--/ion-card-->
+   </div>
+
+
+</ion-content>

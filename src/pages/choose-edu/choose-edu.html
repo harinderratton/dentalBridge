@@ -1,0 +1,158 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Apply Now</ion-title>
+	
+	
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+<div jobdetail>
+     
+      <button round outline ion-button btnsubmit  text-uppercase block color="secondary" (click)="addNewEducation()">
+        
+        <div>{{"Add New Education" | translate}}</div>
+      </button>
+
+
+	<div joblist *ngFor="let address of addressList">
+		<ion-list radio-group class="address-radio" [(ngModel)]="form.currentUserAddress">
+	<ion-row>
+	<ion-col>
+	   <h2 heading>Employer Info</h2></ion-col>
+	   <ion-col text-right>
+	  <ion-radio mt-4 (ionSelect)="selectAddress(address.id,address)"></ion-radio>
+	
+	</ion-col>
+	</ion-row>
+           <ion-item>
+			<ion-icon item-start name="ios-pricetags-outline"></ion-icon> 			
+			  <h2>ID</h2> 
+			  <p>{{address.id}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Display Name</h2> 
+			  <p>{{address.displayName}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-mail-outline"></ion-icon> 			
+			  <h2>Email</h2> 
+			  <p>{{address.email}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Gender</h2> 
+			  <p>{{address.europeResult}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Birthday</h2> 
+			  <p>{{address.birthday}}</p>			
+			</ion-item>
+	
+	   <h2 heading mt-20>Education Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-document-outline"></ion-icon> 			
+			  <h2>Education</h2> 
+			  <p>{{address.education}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Started</h2> 
+			  <p>{{address.started}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Finished</h2> 
+			  <p>{{address.finished}}</p>			
+			</ion-item>
+			
+
+	   <h2 heading mt-20>Career Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Worked Experience</h2> 
+			  <p>{{address.worked}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Max salary per year</h2> 
+			  <p>${{address.maximum}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Min Salary Per Year</h2> 
+			  <p>${{address.minimum}}</p>			
+			</ion-item>
+			</ion-list>
+	</div>
+</div>
+
+
+
+
+<!--ion-list radio-group class="size-list" >
+            <ion-item class="add" (click)="addNewEducation()" style = "background-color : #98EA69;">{{"Add New Education" | translate}}
+                <ion-icon name="add"></ion-icon>
+            </ion-item>
+			</ion-list>
+			
+			<ion-list radio-group class="address-radio" [(ngModel)]="form.currentUserAddress">
+			
+			
+				<ion-item *ngFor="let address of addressList"  style = "background-color : #C2EB99;margin-top:20px;"  >
+					
+				
+				
+					<ion-label >
+						<ion-badge >
+						USER EDUCATION
+					</ion-badge>
+						
+						    <h4 style = "float: center;color:red;padding-top:10px;">EMPLOYEE INFO</h4>
+							<p class="show-address">ID: <b style="float:right;">{{address.id}}</b> </p>
+						    <p class="show-address">Display Name: <b style="float:right;">{{address.displayName}} </b></p>
+							<p class="show-address">Email: <b style="float:right;">{{address.email}}</b></p>
+							
+								<p class="show-address">Gender: <b style="float:right;">{{address.europeResult}}</b></p>
+								
+								<p class="show-address">Birthday: <b style="float:right;">{{address.birthday}}</b></p>
+							
+							<h4 style = "float: center;color:red;">EDUCATION INFO</h4>
+							<p class="show-address">Education: <b style="float:right;">{{address.education}}</b></p>
+							<p class="show-address">Started: <b style="float:right;">{{address.started}}</b></p>
+							<p class="show-address">Finished: <b style="float:right;">{{address.finished}}</b></p>
+							
+							<h4 style = "flost: center;color:red;">CAREER INFO</h4>
+							
+							<p class="show-address">Job Category: <b style="float:right;">{{address.jobcategory}}</b></p>
+							
+							<p class="show-address">Worked year: <b style="float:right;">{{address.worked}}</b></p>
+							
+							<p class="show-address">Max salary per year: <b style="float:right;">{{address.maximum}}$</b></p>
+							<p class="show-address">Min salary per year: <b style="float:right;">{{address.minimum}}$</b></p>
+						
+						
+							
+					</ion-label>
+					
+					<ion-radio (ionSelect)="selectAddress(address.id,address)"></ion-radio>
+					
+					
+					
+				</ion-item>
+				
+				
+			</ion-list-->
+			
+
+
+</ion-content>
+
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">	
+	   <button round ion-button   text-uppercase block color="primary"   (click)="addDescription()">Proceed</button>
+	</ion-toolbar>
+</ion-footer>

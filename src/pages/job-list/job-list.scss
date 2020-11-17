@@ -1,0 +1,282 @@
+page-job-list {
+.search
+{margin-bottom: 15px;position: relative;
+    z-index: 2;
+ ion-searchbar
+{
+ padding: 0px;
+ .searchbar-clear-icon{
+    right: 40px;
+}
+ .searchbar-search-icon 
+ {
+    right: 16px;
+    top: 14px;
+    left: initial;
+    color: #d1cfcf;
+}
+input.searchbar-input {
+    font-size: 16px;
+    line-height: 34px !important;
+    background: $white;    
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    color: #d1cfcf;
+	padding-left:20px!important;
+	padding-right:20px!important;
+    border-radius: 30px;
+	&::placeholder {
+    color: #d1cfcf;
+   }
+}
+}
+}
+ion-header
+{
+ion-buttons
+{
+ button
+ {
+   ion-icon
+   {
+    font-size: 20px;
+    color: #fff;
+   }
+  
+ }
+}
+}
+ion-content
+{
+background:$grey3  url(../../assets/img/bg-grey.jpg) ;
+background-position: top;
+background-size: cover;
+background-repeat: no-repeat;
+[hometop]
+{
+margin-bottom: 20px;
+margin-top: 15px;
+position: relative;
+    z-index: 2;
+.p-0
+{
+padding:0px;
+}
+[listgrid] {
+    background:$white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    display: flex;
+    height: 33px;
+    min-width: 55px;
+    max-width: 85px;
+    justify-content: end;
+    align-items: center;
+    float: right;
+    margin-top: 10px;
+		a
+		{    display: inline-block;
+       &.active
+	   {
+	   [icons]
+		{
+		   color:$primary;
+		   filter: contrast(1) brightness(1) invert(0);
+		   }
+	    }
+	  
+	   &.listicon
+	   {    border-right: 1px solid #d9d9d9;
+            padding-right: 10px;
+             margin-right: 7px;
+	    [icons]
+			 {
+		     font-size: 28px;
+             height: 21px !important;
+			 }
+	    }
+	   
+		[icons]
+			 {
+			  font-size:24px;
+			  filter: contrast(0) brightness(0.2) invert(1);
+			  height:16px;
+			 }
+	    }
+}
+h2
+{
+&[heading]
+{margin-top: 12px;
+color:$black2;
+font-size: 20px;
+position:relative;
+z-index: 1;
+&:after {
+    content: '';
+    background: #b7ccde;
+    height: 9px;
+    width: 90px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+}
+}
+}
+}
+ion-list
+{background:transparent;
+  padding:0px;
+   &.active
+   {
+       display: block!important;
+   }
+  &[gridview]
+  {
+     position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    z-index: 1; 
+	[googlmap]
+	{
+	    height: 100%;
+		img
+		{
+		max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+		}
+	}
+  }
+   &[listview]
+  {
+  
+   ion-item
+   { border-radius: 8px; 
+	   margin-bottom: 15px!important;
+	    padding: 0px!important;
+   	ion-thumbnail
+		{   
+		 width: 90px;
+         height: 100%;
+		 min-height: 120px!important;
+         margin: 0px!important;
+	     position:relative;
+		img {
+			width: 100%!important;
+			height: 100%!important;
+			min-height: 120px;    
+			object-fit: cover;
+		}
+		[heart]
+		{
+		  
+		    position: absolute;
+			left: 10px;
+			top: 10px;
+			width: 27px;
+			height: 27px;
+			background: rgba(255, 255, 255, 0.72);
+			border-radius: 50%;
+			text-align: center;
+			line-height: 34px;
+			font-size: 16px;
+			color: #c1c1c1;
+			&[filled]
+			{
+			color: $orange;
+			}
+		}
+}
+      .item-inner
+	  {
+   	    padding-right: 0!important;
+	    border:none!important;
+	   ion-label
+		{    
+		white-space: normal;
+		margin: 11px 0px 11px 0!important;
+		
+		   padding-left: 8px;
+			h2
+			{
+			     margin: 0px 0px 7px!important;    
+				 padding-right: 30px;
+				 font-size: 15px!important;
+				 color: $black3;
+				 font-weight: 600!important;
+	ion-icon
+	{
+	position: absolute;
+    right: 9px;
+    color: #58aef9;
+    font-size: 16px;
+    cursor: pointer;
+	}
+			}
+			p
+			{ 
+			margin-top: 5px;    
+			padding-right: 5px;
+            line-height: 1.25;
+			font-size: 12px;
+			display:flex;
+			img
+			{
+			    height: 16px;
+				min-width: 14px;
+				margin-right: 5px;
+			}
+			&[address]
+			{
+			color:$black4;
+			}
+			&[briefcase]
+			{    align-items: center;
+			color:$grey4;
+			}
+			}
+		[salary-apply]
+		 {    
+		 margin-top: 5px;	
+		 ion-col
+		 {
+		  padding:0px;
+		 }
+		 ion-badge 
+		     {  
+			    margin-top: 5px;
+				background:$ltblue;
+				color:$primary;
+				padding: 4px 10px;    font-size: 12px;
+				font-weight: 500;
+				border-radius: 30px;
+			
+			}
+			.btn-right
+			{ text-align: right;
+			button
+			{    
+		    margin-bottom: 2px;
+			font-size: 11px;
+			margin-right: 7px;
+			color: $white;
+			background: $secondary;
+			text-transform: capitalize;
+			}
+			}
+		}
+		}
+		
+	  }
+   }
+ }
+}
+}
+}
+
+
+

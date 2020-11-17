@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "516846452731",
+    "firebase_url": "https://job-poster-99974.firebaseio.com",
+    "project_id": "job-poster-99974",
+    "storage_bucket": "job-poster-99974.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516846452731:android:c27b7e6b7b90d3c3f5155e",
+        "android_client_info": {
+          "package_name": "com.job.poster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516846452731-rp4gidook6uka899bj9vqqvufcak2u1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8SsfmxaWpf_8jXUalfA1OT3lnmUQBMRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516846452731-rp4gidook6uka899bj9vqqvufcak2u1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,188 @@
+<ion-header>
+	<ion-navbar color="primary" text-center>
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	  </button>  
+	  <ion-title>Your Applied Job</ion-title>
+	</ion-navbar>
+  </ion-header>
+
+
+<ion-content>
+<div jobinfo> 
+	<div jobimg>
+	  <img src="assets/img/bg-profile.jpg">
+	</div>
+	<div userimg>
+	  <img src="{{jobDetails.face}}"> 
+	</div>
+	<h2>{{jobDetails.education.displayName}}</h2>
+	<p address><b>Expires&nbsp;</b> {{jobDetails.localdate}}</p>
+	<p address>{{jobDetails.timeStamp | date}}</p>
+</div>
+<div jobdetail>
+	<div joblist>
+	   <h2 heading>Job Information</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Job Name</h2> 
+			  <p>{{jobDetails.name}}</p>			
+			</ion-item>
+			<ion-item>
+		
+			<ion-icon item-start name="ios-pin-outline"></ion-icon> 			
+			  <h2>Location</h2> 
+			  <p>{{jobDetails.address}}</p>			
+			</ion-item>
+			
+			<ion-item>
+			<ion-icon item-start name="ios-call-outline"></ion-icon> 			
+			  <h2>Phone No</h2> 
+			  <p>{{jobDetails.phone}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Salary</h2> 
+			  <p>${{jobDetails.minsalary}} - ${{jobDetails.maxsalary}}</p>			
+			</ion-item>
+				<ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Experience</h2> 
+			  <p>{{jobDetails.education.worked}}</p>			
+			</ion-item>
+		 	<ion-item>
+			  <h2>Job Description</h2> 
+			  <p>{{jobDetails.description}}</p>			
+			</ion-item>
+	</div>
+	<div joblist>
+	   <h2 heading>Employee Information</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Name</h2> 
+			  <p>{{jobDetails.education.displayName}}</p>			
+			</ion-item>
+			<ion-item>
+		
+			<ion-icon item-start name="ios-mail-outline"></ion-icon> 			
+			  <h2>Email</h2> 
+			  <p>{{jobDetails.education.email}}</p>			
+			</ion-item>
+			 <ion-item>
+			<ion-icon item-start name="ios-call-outline"></ion-icon> 			
+			  <h2>Phone Number</h2> 
+			  <p>9874563210</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Key Skills</h2> 
+			  <p><span>Dentist</span></p>			
+			</ion-item>
+			<ion-item>
+				<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Gender</h2> 
+			  <p>{{jobDetails.education.europeResult}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Birthday</h2> 
+			  <p>{{jobDetails.education.birthday}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-school-outline"></ion-icon> 			
+			  <h2>Education</h2> 
+			  <p>{{jobDetails.education.education}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Started</h2> 
+			  <p>{{jobDetails.education.started}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Finished</h2> 
+			  <p> {{jobDetails.education.finished}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Work Experience</h2> 
+			  <p>{{jobDetails.education.worked}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Wanted Salary</h2> 
+			  <p>${{jobDetails.education.minimum}} - ${{jobDetails.education.maximum}}</p>			
+			</ion-item>
+			<ion-item>
+				<ion-icon item-start name="ios-pricetags-outline"></ion-icon> 			
+			  <h2>Status</h2> 
+			  <p><span>{{jobDetails.status}}</span></p>			
+			</ion-item>
+			<ion-item>
+				<ion-icon item-start name="ios-document-outline"></ion-icon> 			
+			  <h2>Resume</h2> 
+			  <div  resume (click)="viewCV(jobDetails.resume)"><img  src="assets/cv.png"></div>			
+			</ion-item>
+	</div>
+
+</div>
+
+<!--ion-card style = "background-color : #B0E37C;">
+
+ <ion-title style = "background-color : #B0E37C;">
+    <h2 style = "padding:10px;color:white; text-transform: uppercase;width:100%;"><b>{{jobDetails.education.displayName}}</b></h2>
+	</ion-title>
+  <ion-item>
+	<p style = "float:right;">{{jobDetails.timeStamp | date}}</p> 
+  </ion-item> 
+
+  <img src="{{jobDetails.face}}">
+  <ion-card-content>  
+  <div style = "height:20px;width:100%;"></div>			
+  <ion-badge>
+    <h2>JOB INFORMATION</h2>
+	</ion-badge>	
+	<div style ="padding-left:10px;">	
+	<p><b>Job Name: {{jobDetails.name}}</b></p>
+	<p><b>Description: {{jobDetails.description}}</b></p>	
+	<p><b>Address: {{jobDetails.address}}</b></p>
+	<p><b>Phone: {{jobDetails.phone}}</b></p>    	
+	<p><b>Min Salary: {{jobDetails.minsalary}}</b></p>
+	<p><b>Max Salary: {{jobDetails.maxsalary}}</b></p>
+	<p><b>Expires: {{jobDetails.localdate}}</b></p>	
+	</div>	
+	<div style = "height:20px;width:100%;">	</div>	
+	<ion-badge>
+	<h2>EMPLOYEE EDUCATION INFO</h2>
+	</ion-badge>
+	<div style ="padding-left:10px;">
+	
+	<p><b>Name: {{jobDetails.education.displayName}}</b></p>
+	<p><b>Email: {{jobDetails.education.email}}</b></p>
+	<p><b>Gender: {{jobDetails.education.europeResult}}</b></p>
+	<p><b>Birthday: {{jobDetails.education.birthday}}</b></p>
+	<p><b>Education: {{jobDetails.education.education}}</b></p>
+	<p><b>Started: {{jobDetails.education.started}}</b></p>
+	<p><b>Finished: {{jobDetails.education.finished}}</b></p>
+	<p><b>Wanted Salary Min: {{jobDetails.education.minimum}}</b></p>
+	<p><b>Wanted Salary Max: {{jobDetails.education.maximum}}</b></p>
+	<p><b>Worked years: {{jobDetails.education.worked}}</b></p>
+	<p><b>User Comment: {{jobDetails.education.userComment}}</b></p>
+	</div>
+	
+	
+	<ion-badge style="float:right;background-color:green;margin-top:20px;"><h2>STATUS: {{jobDetails.status}}</h2></ion-badge>
+  </ion-card-content>
+
+  
+
+</ion-card-->
+
+
+</ion-content>
+
+<!--ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+	 <button ion-button block color="secondary" text-uppercase (click)="backToHome()">BACK TO HOME</button>
+	</ion-toolbar>
+</ion-footer-->

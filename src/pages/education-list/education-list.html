@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-navbar color="primary"  text-center>
+   <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+    <ion-title>My Educations</ion-title>
+	
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+	<div jobdetail *ngFor="let address of addressList">
+
+		<ion-buttons end >
+			<button ion-button (click)="editEducation(address)">
+			  <ion-icon name="create"></ion-icon>
+			</button> 
+			
+			<button ion-button (click)="deleteEducation(address.id)">
+			  <ion-icon name="trash"></ion-icon>
+			</button> 
+			</ion-buttons>
+
+
+	<!-- <div joblist>
+	   <h2 heading>Employee Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-pricetags-outline"></ion-icon> 			
+			  <h2>ID</h2> 
+			  <p>{{address.id}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Display Name</h2> 
+			  <p>{{address.displayName}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-mail-outline"></ion-icon> 			
+			  <h2>Email</h2> 
+			  <p>{{address.email}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Gender</h2> 
+			  <p>{{address.europeResult}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Birthday</h2> 
+			  <p>{{address.birthday}}</p>			
+			</ion-item>
+	</div> -->
+<div joblist>
+	   <h2 heading>Education Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-document-outline"></ion-icon> 			
+			  <h2>Education</h2> 
+			  <p>{{address.education}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Started</h2> 
+			  <p>{{address.started}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Finished</h2> 
+			  <p>{{address.finished}}</p>			
+			</ion-item>
+			
+	</div>
+	<div joblist>
+	   <h2 heading>Career Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Worked Experience</h2> 
+			  <p>{{address.worked}} </p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Max salary per year</h2> 
+			  <p>${{address.maximum}}</p>			
+			</ion-item>
+			<ion-item>		
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Min Salary Per Year</h2> 
+			  <p>${{address.minimum}}</p>			
+			</ion-item>
+			
+	</div>
+</div>
+			<!--saved address list-->
+			<!--ion-list>
+				<ion-item *ngFor="let address of addressList" 
+				style = "background-color : #C2EB99;margin-top:20px;">
+					<ion-label>
+							<h4 style = "float: center;color:red;padding-top:10px;">EMPLOYEE INFO</h4>
+							<p class="show-address">ID: <b style="float:right;">{{address.id}}</b> </p>
+						    <p class="show-address">Display Name: <b style="float:right;">{{address.displayName}} </b></p>
+							<p class="show-address">Email: <b style="float:right;">{{address.email}}</b></p>
+							<p class="show-address">Gender: <b style="float:right;">{{address.europeResult}}</b></p>
+							<p class="show-address">Birthday: <b style="float:right;">{{address.birthday}}</b></p>
+							
+							<h4 style = "float: center;color:red;">EDUCATION INFO</h4>
+							<p class="show-address">Education: <b style="float:right;">{{address.education}}</b></p>
+							<p class="show-address">Started: <b style="float:right;">{{address.started}}</b></p>
+							<p class="show-address">Finished: <b style="float:right;">{{address.finished}}</b></p>
+							
+							<h4 style = "flost: center;color:red;">CAREER INFO</h4>
+							
+							<p class="show-address">Job Category: <b style="float:right;">{{address.jobcategory}}</b></p>
+							
+							<p class="show-address">Worked year: <b style="float:right;">{{address.worked}}</b></p>
+							
+							<p class="show-address">Max salary per year: <b style="float:right;">{{address.maximum}}$</b></p>
+							<p class="show-address">Min salary per year: <b style="float:right;">{{address.minimum}}$</b></p>
+							
+							
+							<button ion-button icon-left  (click)="editEducation(address)" clear big>
+									<ion-icon name="build"></ion-icon>
+									<div>Edit</div>
+							</button>
+							
+							<button ion-button icon-left  (click)="deleteEducation(address.id)" clear big>
+									<ion-icon name="trash"></ion-icon>
+									<div>Delete</div>
+							</button>
+					</ion-label>
+							
+				
+										
+					</ion-item>
+					
+					
+					
+					
+					
+			</ion-list-->
+
+<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="responseCame && addressList.length==0">No data found</p>
+</ion-content>

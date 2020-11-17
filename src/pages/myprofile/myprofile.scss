@@ -1,0 +1,130 @@
+.ios,.md{
+
+	page-myprofile {
+		[profileinfo]
+ {
+ [userimg]
+ {  
+position: relative;
+ text-align: center;
+    margin-top: -40px;
+	label {
+    margin-left: 45px;
+    width: 30px;
+    height: 30px;
+    background: $primary;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 30px;
+    border: 2px solid $white;
+    position: absolute;
+    bottom: 23px;
+	ion-icon
+	{color:$white
+	}
+}
+	h2 {
+    margin-top: 5px;
+	margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+	   img
+	   {box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+	   width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    margin: 0 auto;
+    text-align: center;
+	   }
+ }
+ [profileimg]
+ {    position: relative;
+
+   height:150px;
+   img
+   {
+     max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position:bottom;
+   }
+ }
+ }
+  [profilesetting]
+ { padding: 0px 15px 30px;
+
+    ion-segment {
+    background:$grey3;
+    border-radius: 30px;
+	padding: 5px;
+	ion-segment-button
+	{   font-size: 14px;
+    letter-spacing: 1px;
+ 	text-transform: capitalize; border-bottom: none;
+	   color: rgba( 0, 0, 0 , 0.6);
+	    min-height: 40px!important;
+    height: 30px!important;
+	&.segment-activated{
+   border-bottom: none;
+    background:$primary;
+    border-radius: 30px;--border-radius: 30px;
+    color: $white;
+	   --color-checked: $white!important;
+    font-weight: 500;
+}
+}
+}
+  [btnsubmit]
+	{ 
+	min-height: 48px;
+    box-shadow: 5px 5px 20px rgba(32, 79, 144, 0.15);
+    font-weight: 500;
+    font-size: 15px;
+	margin-top:20px;
+	}
+[form-group]
+ {    
+   margin-bottom: 12px;
+  ion-item{
+  .item-inner
+  {
+  border: none;
+    box-shadow: none!important;
+  }box-shadow: none!important;
+       border: 2px solid $ltgrey!important;
+    border-radius: 6px;
+   padding-left: 18px;
+   height: 52px;
+	ion-icon
+	{color:$primary;font-size: 28px;
+	}ion-select , ion-datetime
+	{
+	min-width: calc(100% - 30px);
+    padding-left: 0px;
+	}
+	ion-input
+	{
+	color:$dgrey;
+	}
+}
+ 
+
+    label {
+    font-size: 15px;
+    margin-left: 44px;
+    position: relative;
+    top: 10px;
+    z-index: 9;
+    background:$white;
+    padding: 0px 7px;
+    color: $grey;
+    font-weight: 500;
+}
+}
+}
+	}
+
+}

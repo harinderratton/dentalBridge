@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Job Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<div jobinfo *ngIf="is_loaded">
+<div jobimg>
+ <!-- <ion-badge>${{tech[0]?.minsalary}} - ${{tech[0]?.maxsalary}}</ion-badge>  -->
+</div>
+<div userimg>
+<img src="{{tech[0]?.face}}"/>
+</div>
+<h2>{{tech[0]?.name}}</h2>
+<p address><img src="assets/img/building.png"/><span>{{tech[0]?.address}}</span></p>
+<p briefcase><img src="assets/img/briefcase.png"/><span>Experience: {{tech[0]?.experience}}</span></p>
+</div>
+<div jobdetail  *ngIf="is_loaded">
+	<div joblist>
+	   <h2 heading>Job Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Job Name</h2> 
+			  <p>{{tech[0]?.name}} </p>			
+			</ion-item>
+			<ion-item>
+		
+			<ion-icon item-start name="ios-pin-outline"></ion-icon> 			
+			  <h2>Location</h2> 
+			  <p>{{tech[0]?.address}}</p>			
+			</ion-item>
+			
+			<!-- <ion-item>
+			<ion-icon item-start name="ios-call-outline"></ion-icon> 			
+			  <h2>Phone No</h2> 
+			  <p>{{tech[0]?.phone}}</p>			
+			</ion-item> -->
+			<!-- <ion-item>
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Salary</h2> 
+			  <p>${{tech[0]?.minsalary}} - ${{tech[0]?.maxsalary}}</p>			
+			</ion-item> -->
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Posted Date</h2> 
+			  <p>{{tech[0]?.timeStamp | date}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Expiry  Date</h2> 
+			  <p>{{tech[0]?.localdate}}</p>			
+			</ion-item>
+	</div>
+<div joblist>
+<h2 heading>
+ Job Description
+</h2>
+<p>{{tech[0]?.description}}</p>
+</div>
+<div class="btn-bottom">
+  <button ion-button block round color="secondary" *ngIf = "clicked == false" item-end (click)="applyJob(tech[0])" >Apply Now</button>  
+  <button ion-button block round  color="secondary" *ngIf = "clicked == true" item-end >You have already send resume.</button>
+  <button ion-button block round color="secondary" (click)="goToSavedJob()" outline>Saved Job</button>  
+</div>  
+</div>
+
+<!--ion-card>
+  <img src="{{tech[0].face}}"/>
+  <ion-card-content style = "background-color : #DCF7C2;">
+    <ion-card-title>
+	<ion-badge>
+      <h2>{{tech[0].name}}</h2>
+	  </ion-badge>
+	
+	  <ion-icon icon-big item-right *ngIf = "clicked == true" name="chatbubbles" color = "primary" (click)="chat(group)" style="position:relative; font-size:2em;float:right;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:10px !important"></span>
+						</ion-icon>	
+						
+						<ion-icon icon-big item-right name="chatbubbles" color = "primary" (click)="chat(group)" style="position:relative; font-size:1.5em;float:right;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:10px !important"></span>
+						</ion-icon>	
+						
+						 <ion-icon icon-big item-right name="call" color = "primary" (click)="call(tech[0].phone)" style="position:relative; font-size:1.5em;float:right;padding-right:5px;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:10px !important"></span>
+						</ion-icon>
+      </ion-card-title>
+	 <div style = "width:100%;height:50px;">
+      {{tech[0].description}}
+    </div>
+	
+	<p><b>Address: {{tech[0].address}}</b></p>
+	<p><b>Phone: {{tech[0].phone}}</b></p>
+	
+	<p><b>Min Salary: {{tech[0].minsalary}}</b></p>
+	<p><b>Max Salary: {{tech[0].maxsalary}}</b></p>
+	
+	  
+	
+	
+	<p><b>Posted: {{tech[0].timeStamp | date}}</b></p>
+	<p><b>Expires: {{tech[0].localdate}}</b></p>
+	
+  </ion-card-content>
+</ion-card-->
+<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="!is_loaded">Loading...</p>
+</ion-content>
+<!--on-footer no-shadow>
+	<ion-toolbar position="bottom">
+	
+	<button ion-button *ngIf = "clicked == false" item-end (click)="applyJob(tech[0])" style = "width:100%;">Send Resume</button>
+  
+  <button ion-button *ngIf = "clicked == true" item-end style = "width:100%;">You have already send resume.</button>
+	</ion-toolbar>
+</ion-footer-->

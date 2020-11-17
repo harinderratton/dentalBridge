@@ -1,0 +1,67 @@
+page-add-job {
+    .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom: none!important;
+        box-shadow: none!important;
+    }
+    ion-content
+    {
+    [btnpost]
+    {
+        min-height: 48px;
+        box-shadow: 5px 5px 20px rgba(32, 79, 144, 0.15);
+        font-weight: 500;
+        font-size: 15px;
+    }
+    [form-group]
+     {    
+      margin-bottom: 12px;
+      ion-item{box-shadow: none!important;
+      .item-inner
+      {
+      border: none!important;
+        box-shadow: none!important;
+      }
+           border: 2px solid $ltgrey!important;
+        border-radius: 6px;
+       padding-left: 18px;
+       height:52px;
+       &[heightauto]
+       {
+        height:auto!important;
+       }
+      button
+      {
+      box-shadow: none;
+      }textarea
+      {
+      border:none;
+      }
+        ion-icon
+        {color:$primary;font-size: 28px;
+        }
+        ion-input
+        {
+        color:$dgrey;
+        }ion-select
+        {
+        min-width: calc(100% - 35px);
+        padding-left: 0px;
+        }
+    }
+     
+      
+        label {
+        font-size: 15px;
+        margin-left: 44px;
+        position: relative;
+        top: 10px;
+        z-index: 9;
+        background:$white;
+        padding: 0px 7px;
+        color: $grey;
+        font-weight: 500;
+    }
+    }
+    }
+    }
+    
