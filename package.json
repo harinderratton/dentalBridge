@@ -68,6 +68,7 @@
     "ionic-angular": "3.9.9",
     "ionic3-datepicker": "^2.5.3",
     "ionicons": "3.0.0",
+    "ng2-adsense": "^6.0.1",
     "ngx-geoautocomplete": "^0.1.1",
     "phonegap-plugin-multidex": "^1.0.0",
     "phonegap-plugin-push": "^2.3.0",
@@ -127,7 +128,8 @@
         "APP_NAME": "DentalBridge",
         "FACEBOOK_HYBRID_APP_EVENTS": "false",
         "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
-      }
+      },
+      "cordova-plugin-admob-free": {}
     },
     "platforms": []
   }

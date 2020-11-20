@@ -81,6 +81,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import {CallNumber} from '@ionic-native/call-number';
 import { ParallaxDirective } from '../directives/parallax/parallax';
+import { AdsenseModule } from 'ng2-adsense';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -136,6 +137,10 @@ export function createTranslateLoader(http: Http) {
     HttpClientModule,
     IonicModule.forRoot(MyApp),
 	DatePickerModule,
+	AdsenseModule.forRoot({
+      adClient: 'ca-pub-8514227015105788',
+      adSlot: 7259870550,
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
