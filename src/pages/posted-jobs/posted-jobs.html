@@ -12,12 +12,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-<ng-adsense
+<!-- <ng-adsense
 			[adClient]="'ca-pub-8514227015105788'"
 			[display]="'inline-block'"
 			[width]="100"
 			[height]="100"
-			></ng-adsense>
+			></ng-adsense> -->
 <p *ngIf="!is_loaded">Loading...</p>
 <ion-list *ngIf="is_loaded">
   <ion-item-sliding *ngFor="let location of locations">

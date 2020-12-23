@@ -20,6 +20,7 @@
     "@angular/http": "^5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/admob": "^5.30.0",
     "@ionic-native/admob-free": "^4.20.0",
     "@ionic-native/background-geolocation": "^4.20.0",
     "@ionic-native/call-number": "^4.20.0",
@@ -45,9 +46,7 @@
     "card.io.cordova.mobilesdk": "^2.1.0",
     "chart.js": "^2.9.3",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
-    "cordova-admob-sdk": "^0.24.1",
-    "cordova-android": "^8.1.0",
-    "cordova-plugin-admob-free": "^0.27.0",
+    "cordova-admob-sdk": "0.24.1",
     "cordova-plugin-datepicker": "^0.9.3",
     "cordova-plugin-facebook4": "^6.4.0",
     "cordova-plugin-geolocation": "^4.0.2",
@@ -81,17 +80,30 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.2.3",
+    "cordova-admob": "^5.1.0",
+    "cordova-android": "^9.0.0",
+    "cordova-connectivity-monitor": "^1.2.2",
+    "cordova-ios": "^6.1.1",
+    "cordova-libgoogleadmobads": "git+https://github.com/appfeel/google-iosadmobads.git",
+    "cordova-play-services-version-adapter": "^1.1.0",
+    "cordova-plugin-admobpro": "^2.49.0",
+    "cordova-plugin-androidx": "^3.0.0",
+    "cordova-plugin-androidx-adapter": "^1.1.3",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
+    "mx.ferreyra.callnumber": "0.0.2",
     "typescript": "^2.7.2"
   },
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-x-socialsharing": {
+        "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
+      },
       "cordova-plugin-nativestorage": {},
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-stripe": {},
@@ -111,7 +123,9 @@
         "ACCOUNT_NAME": "@string/app_name",
         "ACCOUNT_LABEL": "@string/app_name",
         "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
-        "CONTENT_AUTHORITY": "$PACKAGE_NAME"
+        "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+        "ALWAYS_USAGE_DESCRIPTION": "This app always requires location tracking",
+        "MOTION_USAGE_DESCRIPTION": "This app requires motion detection"
       },
       "mx.ferreyra.callnumber": {},
       "cordova-plugin-datepicker": {},
@@ -129,8 +143,16 @@
         "FACEBOOK_HYBRID_APP_EVENTS": "false",
         "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
       },
-      "cordova-plugin-admob-free": {}
+      "cordova-admob": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "TheDentalBridgeca-app-pub-8514227015105788~9305306509"
+      },
+      "call-number": {},
+      "cordova-plugin-androidx": {},
+      "cordova-plugin-androidx-adapter": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }
