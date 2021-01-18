@@ -36,7 +36,6 @@ import { MyJobsPage } from '../pages/my-jobs/my-jobs';
 import { ChooseEduPage } from '../pages/choose-edu/choose-edu';
 
 import { AddDescriptionPage } from '../pages/add-description/add-description';
-import { AdMobFree } from '@ionic-native/admob-free';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -138,7 +137,7 @@ export function createTranslateLoader(http: Http) {
     IonicModule.forRoot(MyApp),
 	DatePickerModule,
 	AdsenseModule.forRoot({
-      adClient: 'ca-pub-8514227015105788',
+      adClient: 'pub-8514227015105788',
       adSlot: 7259870550,
     }),
     TranslateModule.forRoot({
@@ -191,7 +190,7 @@ export function createTranslateLoader(http: Http) {
 	AddDescriptionPage,
   ],
   providers: [
-	AdMobFree,
+ 
 	GoogleMaps,
 	InAppBrowser,
 	SpinnerDialog,

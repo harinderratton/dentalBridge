@@ -12,7 +12,6 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Values } from '../../providers/values';
 import { Functions } from '../../providers/functions/functions';
 import { Service1 } from '../../providers/service1';
-import { AdMobFree , AdMobFreeBannerConfig, AdMobFreeInterstitialConfig, AdMobFreeRewardVideoConfig } from '@ionic-native/admob-free';
 import * as firebase from 'firebase/app';
 import { Tabs1Page } from '../tabs1/tabs1';
 // import { ListPage } from '../list/list';
@@ -50,7 +49,8 @@ export class Home1Page {
 	
 	params:any ={};
 	
-  constructor(public adMobFree: AdMobFree,
+  constructor(
+    
             public nav: NavController,
             public navParams: NavParams,
             public functions: Functions, 
@@ -430,63 +430,63 @@ export class Home1Page {
     return true;
   }
   
-  async showBannerAd(){
-	  const bannerConfig: AdMobFreeBannerConfig = {
-		  id : 'ca-app-pub-6026141143855033/6021415851',
-		  isTesting: false,
-		  autoShow: true
-	  }
+  // async showBannerAd(){
+	//   const bannerConfig: AdMobFreeBannerConfig = {
+	// 	  id : 'ca-app-pub-6026141143855033/6021415851',
+	// 	  isTesting: false,
+	// 	  autoShow: true
+	//   }
 	  
-	  this.adMobFree.banner.config(bannerConfig);
+	//   this.adMobFree.banner.config(bannerConfig);
 	  
-	  try{
-		const result = this.adMobFree.banner.prepare();
+	//   try{
+	// 	const result = this.adMobFree.banner.prepare();
 
-			console.log(result);
-	  }
-	  catch(e){
-		  console.error(e);
-	  }
-  }
+	// 		console.log(result);
+	//   }
+	//   catch(e){
+	// 	  console.error(e);
+	//   }
+  // }
   
-  async showInterstitialAd(){
+  // async showInterstitialAd(){
 	  
-	  try{
-		  const interstitialConfig: AdMobFreeInterstitialConfig = {
-			  id : 'ca-app-pub-6026141143855033/5823595991',
-			  isTesting: false,
-			  autoShow: true
-		  }
+	//   try{
+	// 	  const interstitialConfig: AdMobFreeInterstitialConfig = {
+	// 		  id : 'ca-app-pub-6026141143855033/5823595991',
+	// 		  isTesting: false,
+	// 		  autoShow: true
+	// 	  }
 		  
-		  this.adMobFree.interstitial.config(interstitialConfig);
+	// 	  this.adMobFree.interstitial.config(interstitialConfig);
 		  
-		  const result = await this.adMobFree.interstitial.prepare();
+	// 	  const result = await this.adMobFree.interstitial.prepare();
 		  
-		  console.log(result);
-	  }
-	  catch(e){
-		  console.log(e);
-	  }
-  }
+	// 	  console.log(result);
+	//   }
+	//   catch(e){
+	// 	  console.log(e);
+	//   }
+  // }
   
   
-  async showVideoRewardsAd(){
-	  try{
-		  const videoRewardsConfig : AdMobFreeRewardVideoConfig = {
-			  id: 'ca-app-pub-6026141143855033/7631501688',
-			  isTesting : false,
-			  autoShow: true
-		  }
+  // async showVideoRewardsAd(){
+	//   try{
+	// 	  const videoRewardsConfig : AdMobFreeRewardVideoConfig = {
+	// 		  id: 'ca-app-pub-6026141143855033/7631501688',
+	// 		  isTesting : false,
+	// 		  autoShow: true
+	// 	  }
 		  
-		  this.adMobFree.rewardVideo.config(videoRewardsConfig);
+	// 	  this.adMobFree.rewardVideo.config(videoRewardsConfig);
 		  
-		  const result = await this.adMobFree.rewardVideo.prepare();
-		  console.log(result);
-	  }
-	  catch(e){
-		  console.error(e);
-	  }
-  }
+	// 	  const result = await this.adMobFree.rewardVideo.prepare();
+	// 	  console.log(result);
+	//   }
+	//   catch(e){
+	// 	  console.error(e);
+	//   }
+  // }
 
 
   

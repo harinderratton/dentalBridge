@@ -20,8 +20,7 @@
     "@angular/http": "^5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
-    "@ionic-native/admob": "^5.30.0",
-    "@ionic-native/admob-free": "^4.20.0",
+    "@ionic-native/admob-pro": "^5.30.0",
     "@ionic-native/background-geolocation": "^4.20.0",
     "@ionic-native/call-number": "^4.20.0",
     "@ionic-native/core": "4.20.0",
@@ -46,20 +45,26 @@
     "card.io.cordova.mobilesdk": "^2.1.0",
     "chart.js": "^2.9.3",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
-    "cordova-admob-sdk": "0.24.1",
+    "cordova-android": "^9.0.0",
+    "cordova-plugin-admobpro": "^2.49.0",
     "cordova-plugin-datepicker": "^0.9.3",
+    "cordova-plugin-device": "2.0.2",
     "cordova-plugin-facebook4": "^6.4.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-inappbrowser": "^4.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^4.0.0",
     "cordova-plugin-mauron85-background-geolocation": "^3.0.1",
     "cordova-plugin-native-spinner": "^1.1.3",
     "cordova-plugin-nativestorage": "^2.3.2",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-stripe": "^1.5.3",
     "cordova-plugin-whitelist": "^1.3.4",
     "cordova-plugin-x-socialsharing": "^5.6.8",
-    "cordova-promise-polyfill": "0.0.2",
     "cordova-res": "^0.15.1",
+    "cordova-sqlite-storage": "^5.1.0",
     "cordova-support-google-services": "^1.3.2",
     "es6-promise-plugin": "^4.2.2",
     "firebase": "^4.8.0",
@@ -67,11 +72,12 @@
     "ionic-angular": "3.9.9",
     "ionic3-datepicker": "^2.5.3",
     "ionicons": "3.0.0",
-    "ng2-adsense": "^6.0.1",
+    "ng2-adsense": "^6.0.3",
     "ngx-geoautocomplete": "^0.1.1",
     "phonegap-plugin-multidex": "^1.0.0",
     "phonegap-plugin-push": "^2.3.0",
     "promise-polyfill": "8.1.0",
+    "properties-parser": "^0.3.1",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.6.3",
     "sw-toolbox": "3.6.0",
@@ -80,16 +86,14 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.2.3",
-    "cordova-admob": "^5.1.0",
-    "cordova-android": "^9.0.0",
-    "cordova-connectivity-monitor": "^1.2.2",
-    "cordova-ios": "^6.1.1",
+    "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-libgoogleadmobads": "git+https://github.com/appfeel/google-iosadmobads.git",
-    "cordova-play-services-version-adapter": "^1.1.0",
     "cordova-plugin-admobpro": "^2.49.0",
     "cordova-plugin-androidx": "^3.0.0",
     "cordova-plugin-androidx-adapter": "^1.1.3",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-extension": "^1.5.4",
+    "cordova-plugin-firebasex": "^11.0.3",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -102,7 +106,8 @@
     "plugins": {
       "cordova-plugin-x-socialsharing": {
         "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
-        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
+        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
       },
       "cordova-plugin-nativestorage": {},
       "com.paypal.cordova.mobilesdk": {},
@@ -143,13 +148,15 @@
         "FACEBOOK_HYBRID_APP_EVENTS": "false",
         "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
       },
-      "cordova-admob": {},
-      "cordova-plugin-admob-free": {
-        "ADMOB_APP_ID": "TheDentalBridgeca-app-pub-8514227015105788~9305306509"
-      },
       "call-number": {},
       "cordova-plugin-androidx": {},
-      "cordova-plugin-androidx-adapter": {}
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-firebasex": {},
+      "cordova-android-support-gradle-release": {},
+      "cordova-plugin-admobpro": {
+        "ADMOB_APP_ID": "TheDentalBridgeca-app-pub-8514227015105788~9305306509"
+      },
+      "cordova-sqlite-storage": {}
     },
     "platforms": [
       "android"

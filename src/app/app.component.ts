@@ -73,7 +73,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { Notifications1Page } from '../pages/notifications1/notifications1';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Tabs1Page } from '../pages/tabs1/tabs1';
-import { AdMobFree, AdMobFreeBannerConfig, AdMobFreeInterstitialConfig } from '@ionic-native/admob-free';
+ 
 
 @Component({
   templateUrl: 'app.html'
@@ -90,25 +90,22 @@ export class MyApp {
   
   public userProfiles: any;
 
-  constructor( public admobFree: AdMobFree, private fb: Facebook, public events:EventsService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public values: Values, public translateService: TranslateService) {
+  constructor(  private fb: Facebook, public events:EventsService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public values: Values, public translateService: TranslateService) {
     
-    //add code
-    const bannerConfig: AdMobFreeBannerConfig = {
-      // add your config here
-      // for the sake of this example we will just use the test config
-      // isTesting: true,
-      autoShow: true,
-      id: 'ca-app-pub-8514227015105788/1366272582'
-     };
-     this.admobFree.banner.config(bannerConfig);
+   
+    // const bannerConfig: AdMobFreeBannerConfig = {
+ 
+    //   autoShow: true,
+    //   id: 'ca-app-pub-8514227015105788/1366272582'
+    //  };
+    //  this.admobFree.banner.config(bannerConfig);
      
-     this.admobFree.banner.prepare()
-       .then(() => {
-         // banner Ad is ready
-         // if we set autoShow to false, then we will need to call the show method here
-       })
-       .catch(e => console.log(e));
-    //add code 
+    //  this.admobFree.banner.prepare()
+    //    .then(() => {
+ 
+    //    })
+    //    .catch(e => console.log(e));
+ 
     
     var userType = localStorage.getItem('userType');
     this.userType = userType

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.indiit.JobSeeker" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.job.poster" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Dental Bridge</name>
     <description>Connecting dental community.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Job Seeker Team</author>
@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="22" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
@@ -100,9 +100,58 @@
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.6.8">
+        <variable name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="This app requires photo library access to function properly." />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.1+" />
+    </plugin>
+    <plugin name="cordova-plugin-nativestorage" spec="^2.3.2" />
+    <plugin name="com.paypal.cordova.mobilesdk" spec="^3.5.0" />
+    <plugin name="cordova-plugin-stripe" spec="^1.5.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0">
+        <variable name="ANDROID_SUPPORT_ANNOTATIONS_VERSION" value="27.+" />
+    </plugin>
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.2" />
+    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^3.0.1">
+        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
+        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="26+" />
+        <variable name="ICON" value="@mipmap/icon" />
+        <variable name="SMALL_ICON" value="@mipmap/icon" />
+        <variable name="ACCOUNT_NAME" value="@string/app_name" />
+        <variable name="ACCOUNT_LABEL" value="@string/app_name" />
+        <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
+        <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
+        <variable name="ALWAYS_USAGE_DESCRIPTION" value="This app always requires location tracking" />
+        <variable name="MOTION_USAGE_DESCRIPTION" value="This app requires motion detection" />
+    </plugin>
+    <plugin name="mx.ferreyra.callnumber" />
+    <plugin name="cordova-plugin-datepicker" spec="^0.9.3" />
+    <plugin name="phonegap-plugin-push" spec="^2.3.0">
+        <variable name="ANDROID_SUPPORT_V13_VERSION" value="27.+" />
+        <variable name="FCM_VERSION" value="17.0.+" />
+    </plugin>
+    <plugin name="cordova-plugin-native-spinner" spec="^1.1.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^4.0.0" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.7.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.4" />
+    <plugin name="cordova-plugin-facebook4" spec="^6.4.0">
+        <variable name="APP_ID" value="766441284099315" />
+        <variable name="APP_NAME" value="DentalBridge" />
+        <variable name="FACEBOOK_HYBRID_APP_EVENTS" value="false" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="5.13.0" />
+    </plugin>
+    <plugin name="cordova-plugin-androidx" />
+    <plugin name="cordova-plugin-androidx-adapter" />
+    <plugin name="cordova-plugin-firebasex" />
+    <plugin name="cordova-android-support-gradle-release" />
+    <plugin name="cordova-plugin-admobpro" spec="^2.49.0">
+        <variable name="ADMOB_APP_ID" value="TheDentalBridgeca-app-pub-8514227015105788~9305306509" />
+    </plugin>
+    <plugin name="cordova-sqlite-storage" spec="^5.1.0" />
+    <plugin name="call-number" spec="^1.0.1" />
+    <engine name="android" spec="^9.0.0" />
 </widget>

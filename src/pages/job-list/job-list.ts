@@ -17,6 +17,7 @@ import {CallNumber} from '@ionic-native/call-number';
 import { NotificationsPage } from '../notifications/notifications';
 import { JobDetailsPage } from '../job-details/job-details';
 import { Platform } from "ionic-angular";
+import { AdMobPro } from '@ionic-native/admob-pro/ngx';
 declare var google;
 @IonicPage()
 @Component({
@@ -41,9 +42,18 @@ export class JobListPage {
 	public locations:any = {};
 	responseCame:any= false;
 
-  constructor( public plt: Platform, public googleMaps: GoogleMaps, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
+  constructor( private admob: AdMobPro, public plt: Platform, public googleMaps: GoogleMaps, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
 	  
-	  
+	let adId;
+	if(this.plt.is('android')) {
+	  adId = 'ca-app-pub-8514227015105788/1366272582';
+	} else if (this.plt.is('ios')) {
+	  adId = 'YOUR_ADID_IOS';
+	}
+	this.admob.prepareInterstitial({adId: adId})
+	  .then(() => { this.admob.showInterstitial(); });
+
+
 	  this.id = 'all';
 	   this.locations = [];
 	  
