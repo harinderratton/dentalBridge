@@ -84,7 +84,8 @@ import { AdsenseModule } from 'ng2-adsense';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
+import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
+import { AdMobPro } from '@ionic-native/admob-pro/ngx';
 @NgModule({
   declarations: [
 	JobOfferDetailsPage,
@@ -190,7 +191,8 @@ export function createTranslateLoader(http: Http) {
 	AddDescriptionPage,
   ],
   providers: [
- 
+	AdMobPro,
+	AdMobFree,
 	GoogleMaps,
 	InAppBrowser,
 	SpinnerDialog,

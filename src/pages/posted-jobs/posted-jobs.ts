@@ -11,7 +11,7 @@ import { Functions } from '../../providers/functions/functions';
 import { JobDetails1Page } from '../job-details1/job-details1';
 import { EditJobPage } from '../edit-job/edit-job';
 import { AddJobPage } from '../add-job/add-job';
- 
+import { AdMobFree,AdMobFreeInterstitialConfig} from '@ionic-native/admob-free';
 
 @IonicPage()
 @Component({
@@ -25,7 +25,8 @@ export class PostedJobsPage {
 	
 	public locations:any = {};
   is_loaded:boolean=false;
-  constructor(public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service1, public translateService: TranslateService,public callNumber: CallNumber,public functions: Functions) {
+  constructor(private admobFree: AdMobFree, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service1, public translateService: TranslateService,public callNumber: CallNumber,public functions: Functions)
+   {
  
 
  // this.id = navParams.data.category.id;
@@ -41,36 +42,48 @@ export class PostedJobsPage {
       console.log(snapshot)
   		//this.productsList = [];
 		this.locations = [];
-
+    var x = 1;
   		snapshot.forEach( snap =>{
-  			this.locations.push({
-          
-  			id: snap.key,
-			face: snap.val().face,
-			name: snap.val().name,
-			category: snap.val().category,
-			address: snap.val().address,
-			description: snap.val().description,
-			employer_id: snap.val().employer_id,
-			job_id: snap.val().job_id,
-			localdate: snap.val().localdate,
-			maxsalary: snap.val().maxsalary,
-			minsalary: snap.val().minsalary,
-			phone: snap.val().phone,
-			reverseOrder: snap.val().reverseOrder,
-			timeStamp: snap.val().timeStamp,
-      user_id: snap.val().user_id,
-			experience: snap.val().experience,
-      company: snap.val().company,
-      email: snap.val().email,
-      is_recruiter: snap.val().is_recruiter,
-      company_size: snap.val().company_size,
-      qualification: snap.val().qualification,
-      poster: snap.val().poster,
-      lat: snap.val().lat,
-      lng: snap.val().lng
 
-  			});
+        var dist = {
+          
+          id: snap.key,
+        face: snap.val().face,
+        name: snap.val().name,
+        category: snap.val().category,
+        address: snap.val().address,
+        description: snap.val().description,
+        employer_id: snap.val().employer_id,
+        job_id: snap.val().job_id,
+        localdate: snap.val().localdate,
+        maxsalary: snap.val().maxsalary,
+        minsalary: snap.val().minsalary,
+        phone: snap.val().phone,
+        reverseOrder: snap.val().reverseOrder,
+        timeStamp: snap.val().timeStamp,
+        user_id: snap.val().user_id,
+        experience: snap.val().experience,
+        company: snap.val().company,
+        email: snap.val().email,
+        is_recruiter: snap.val().is_recruiter,
+        company_size: snap.val().company_size,
+        qualification: snap.val().qualification,
+        poster: snap.val().poster,
+        lat: snap.val().lat,
+        lng: snap.val().lng
+  
+          }
+
+          if(x % 3 == 0 && x!=0) {
+          dist['ad'] = '1';
+          console.log('x % 3', x % 3)
+          console.log('x', x)
+        }
+
+        x++;
+
+				this.locations.push(dist);
+      
   		});
 		
 		this.locations = this.locations.reverse();
@@ -275,6 +288,27 @@ export class PostedJobsPage {
                 return (data.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
             })
         }
+    }
+
+    showInterstitialAds(){
+      let interstitialConfig: AdMobFreeInterstitialConfig = {
+        isTesting: true,  
+        autoShow: true,
+        id: "ca-app-pub-3940256099942544/8691691433"
+      };
+      this.admobFree.interstitial.config(interstitialConfig);
+      this.admobFree.interstitial.prepare().then(() => {
+        
+        
+      }).catch(e => {
+  
+      });
+  
+    
+    }
+
+    runAd(){
+      this.showInterstitialAds();
     }
 
 

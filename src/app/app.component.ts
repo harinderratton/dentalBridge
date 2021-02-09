@@ -73,7 +73,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { Notifications1Page } from '../pages/notifications1/notifications1';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Tabs1Page } from '../pages/tabs1/tabs1';
- 
+import { AdMobFree, AdMobFreeBannerConfig,AdMobFreeInterstitialConfig,AdMobFreeRewardVideoConfig } from '@ionic-native/admob-free';
 
 @Component({
   templateUrl: 'app.html'
@@ -90,9 +90,15 @@ export class MyApp {
   
   public userProfiles: any;
 
-  constructor(  private fb: Facebook, public events:EventsService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public values: Values, public translateService: TranslateService) {
+  constructor( private admobFree: AdMobFree,  private fb: Facebook, public events:EventsService, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public alertCtrl: AlertController, public values: Values, public translateService: TranslateService) {
     
-   
+   	// this.showInterstitialAds();
+	// this.admobFree.on('admob.interstitial.events.CLOSE').subscribe(() => {
+		 
+	// 	this.runAgain();
+  //  });
+  
+
     // const bannerConfig: AdMobFreeBannerConfig = {
  
     //   autoShow: true,
@@ -157,6 +163,32 @@ this.menuOptions()
           });
         }
     });
+  }
+
+  showInterstitialAds(){
+    let interstitialConfig: AdMobFreeInterstitialConfig = {
+      isTesting: true,  
+      autoShow: true,
+      id: "ca-app-pub-3940256099942544/8691691433"
+    };
+    this.admobFree.interstitial.config(interstitialConfig);
+    this.admobFree.interstitial.prepare().then(() => {
+      
+      
+    }).catch(e => {
+  
+    });
+  
+  
+  }
+  
+  runAgain(){
+    
+    setTimeout(() => { 
+  
+      this.showInterstitialAds();
+  
+    }, 180000);
   }
 
   // initializeApp() {

@@ -30022,6 +30022,18 @@ page-job-list ion-content ion-list[listview] ion-item {
   padding: 0px !important;
 }
 
+page-job-list ion-content ion-list[listview] ion-item[addlist] ion-thumbnail {
+  width: auto;
+  height: auto;
+  min-height: 56px !important;
+}
+
+page-job-list ion-content ion-list[listview] ion-item[addlist] ion-thumbnail img {
+  width: 56px !important;
+  height: 56px !important;
+  min-height: auto;
+}
+
 page-job-list ion-content ion-list[listview] ion-item ion-thumbnail {
   width: 90px;
   height: 100%;
@@ -31282,6 +31294,18 @@ page-posted-jobs ion-content ion-list ion-item-sliding {
 
 page-posted-jobs ion-content ion-list ion-item-sliding ion-item {
   padding: 0px !important;
+}
+
+page-posted-jobs ion-content ion-list ion-item-sliding ion-item[addlist] ion-thumbnail {
+  width: auto;
+  height: auto;
+  min-height: 56px !important;
+}
+
+page-posted-jobs ion-content ion-list ion-item-sliding ion-item[addlist] ion-thumbnail img {
+  width: 56px !important;
+  height: 56px !important;
+  min-height: auto;
 }
 
 page-posted-jobs ion-content ion-list ion-item-sliding ion-item ion-thumbnail {

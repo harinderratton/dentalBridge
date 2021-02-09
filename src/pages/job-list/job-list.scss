@@ -157,7 +157,20 @@ ion-list
    ion-item
    { border-radius: 8px; 
 	   margin-bottom: 15px!important;
-	    padding: 0px!important;
+		padding: 0px!important;
+		&[addlist] 
+		{
+		ion-thumbnail {
+			width: auto;
+			height: auto;
+			min-height: 56px!important;
+			img{
+				width: 56px !important;
+				height: 56px !important;
+				min-height: auto;
+			}
+		}
+	}
    	ion-thumbnail
 		{   
 		 width: 90px;

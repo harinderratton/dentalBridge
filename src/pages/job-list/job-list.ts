@@ -17,7 +17,8 @@ import {CallNumber} from '@ionic-native/call-number';
 import { NotificationsPage } from '../notifications/notifications';
 import { JobDetailsPage } from '../job-details/job-details';
 import { Platform } from "ionic-angular";
-import { AdMobPro } from '@ionic-native/admob-pro/ngx';
+import { AdMobFree, AdMobFreeBannerConfig,AdMobFreeInterstitialConfig,AdMobFreeRewardVideoConfig } from '@ionic-native/admob-free';
+
 declare var google;
 @IonicPage()
 @Component({
@@ -41,51 +42,60 @@ export class JobListPage {
 	is_loaded:any=false;
 	public locations:any = {};
 	responseCame:any= false;
+	addDisplayed:any;
+	pageExit:any;
+  constructor( private admobFree: AdMobFree, public plt: Platform, public googleMaps: GoogleMaps, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
+	    this.pageExit = false;
+		this.addDisplayed = false;
+		// this.showInterstitialAds();
+		this.id = 'all';
+		this.locations = [];
 
-  constructor( private admob: AdMobPro, public plt: Platform, public googleMaps: GoogleMaps, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams,public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
-	  
-	let adId;
-	if(this.plt.is('android')) {
-	  adId = 'ca-app-pub-8514227015105788/1366272582';
-	} else if (this.plt.is('ios')) {
-	  adId = 'YOUR_ADID_IOS';
-	}
-	this.admob.prepareInterstitial({adId: adId})
-	  .then(() => { this.admob.showInterstitial(); });
+		// this.admobFree.on('admob.interstitial.events.CLOSE').subscribe(() => {
+		 
+		// 	this.runAgain();
+		//  });
 
 
-	  this.id = 'all';
-	   this.locations = [];
-	  
 	  //console.log(this.params.data.items);
 	  this.responseCame = false;
 	  this.service.getJobsByCategory(this.id).on('value', snapshot =>{
   		//this.productsList = [];
 		this.locations = [];
 
-  		snapshot.forEach( snap =>{
-  			this.locations.push({
-          
-  			id: snap.key,
-			address: snap.val().address,
-			category: snap.val().category,
-			description: snap.val().description,
-			employer_id: snap.val().employer_id,
-			face: snap.val().face,
-			job_id: snap.val().job_id,
-			localdate: snap.val().localdate,
-			maxsalary: snap.val().maxsalary,
-			minsalary: snap.val().minsalary,
-			name: snap.val().name,
-			phone: snap.val().phone,
-			reverseOrder: snap.val().reverseOrder,
-			timeStamp: snap.val().timeStamp,
-			user_id: snap.val().user_id,
-			experience: snap.val().experience,
-			lat: snap.val().lat,
-			lng: snap.val().lng,
+		var x = 0;
 
-  			});
+  		snapshot.forEach( snap =>{
+
+			var dist:any = {
+          
+			  id: snap.key,
+			  address: snap.val().address,
+			  category: snap.val().category,
+			  description: snap.val().description,
+			  employer_id: snap.val().employer_id,
+			  face: snap.val().face,
+			  job_id: snap.val().job_id,
+			  localdate: snap.val().localdate,
+			  maxsalary: snap.val().maxsalary,
+			  minsalary: snap.val().minsalary,
+			  name: snap.val().name,
+			  phone: snap.val().phone,
+			  reverseOrder: snap.val().reverseOrder,
+			  timeStamp: snap.val().timeStamp,
+			  user_id: snap.val().user_id,
+			  experience: snap.val().experience,
+			  lat: snap.val().lat,
+			  lng: snap.val().lng,
+				}
+
+				if( x % 3 == 0 && x!=1) {
+					dist['ad'] = '1';
+					console.log('coming there', x)
+				}
+
+				this.locations.push(dist);
+				x++;
   		});
 		
 		this.locations = this.locations.reverse();
@@ -324,7 +334,43 @@ all_markers:any=[];
 }
 
 
-  
+	showInterstitialAds(){
+		let interstitialConfig: AdMobFreeInterstitialConfig = {
+			isTesting: true,  
+			autoShow: true,
+			id: "ca-app-pub-3940256099942544/8691691433"
+		};
+		this.admobFree.interstitial.config(interstitialConfig);
+		this.admobFree.interstitial.prepare().then(() => {
+			
+			
+		}).catch(e => {
+
+		});
+
+	
+	}
+
+	runAgain(){
+        
+		setTimeout(() => { 
+
+			if(!this.pageExit){
+				this.showInterstitialAds();
+			}
+	
+		}, 180000);
+	}
+
+	ionViewDidLeave(){
+
+		this.pageExit = true;
+
+	}
+
+	runAd(){
+		this.showInterstitialAds();
+	}
 
 }
 

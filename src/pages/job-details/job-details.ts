@@ -11,7 +11,7 @@ import { AppliedInfoPage } from '../applied-info/applied-info';
 import { ChooseEduPage } from '../choose-edu/choose-edu';
 import { SavedjobPage } from '../savedjob/savedjob';
 import firebase from 'firebase';
-
+import { AdMobFree, AdMobFreeBannerConfig,AdMobFreeInterstitialConfig,AdMobFreeRewardVideoConfig } from '@ionic-native/admob-free';
 /**
  * Generated class for the JobDetailsPage page.
  *
@@ -36,8 +36,14 @@ export class JobDetailsPage {
    
    newClicked : any;
 
-  constructor(public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams, public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
-	  
+  constructor(private admobFree: AdMobFree, public values:Values, private nativeStorage: NativeStorage,public navCtrl: NavController, public navParams: NavParams, public service: Service, public translateService: TranslateService,public callNumber: CallNumber) {
+	// this.showInterstitialAds();
+	// this.admobFree.on('admob.interstitial.events.CLOSE').subscribe(() => {
+		 
+	// 	this.runAgain();
+	//  });
+
+
 	  console.log(navParams.data.locations);
 	  
 	  this.id = navParams.data.locations.id;
@@ -201,5 +207,32 @@ export class JobDetailsPage {
             .then(() =>{} )
             .catch(() =>{});
   }
+
+
+  showInterstitialAds(){
+	let interstitialConfig: AdMobFreeInterstitialConfig = {
+		isTesting: true,  
+		autoShow: true,
+		id: "ca-app-pub-3940256099942544/8691691433"
+	};
+	this.admobFree.interstitial.config(interstitialConfig);
+	this.admobFree.interstitial.prepare().then(() => {
+		
+		
+	}).catch(e => {
+
+	});
+
+
+}
+
+runAgain(){
+	
+	setTimeout(() => { 
+
+	  this.showInterstitialAds();
+
+	}, 180000);
+}
 
 }

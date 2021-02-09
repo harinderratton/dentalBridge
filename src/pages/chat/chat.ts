@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { Service } from '../../providers/service';
-
+import { AdMobFree,AdMobFreeInterstitialConfig} from '@ionic-native/admob-free';
 @IonicPage()
 @Component({
   selector: 'page-chat',
@@ -23,7 +23,8 @@ export class ChatPage {
  loader:any;
   constructor(public navCtrl: NavController, 
     public params: NavParams,
-    public service: Service) {
+    public service: Service,
+    private admobFree: AdMobFree) {
       this.fromId = params.data.fromId;
       this.roomId = params.data.roomId;
       this.user_id = firebase.auth().currentUser.uid;
@@ -40,7 +41,7 @@ export class ChatPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
+    this.runAd();
   }
 
   genRandromid(){
@@ -109,5 +110,28 @@ export class ChatPage {
     }}
   
   }
+
+
+  showInterstitialAds(){
+    let interstitialConfig: AdMobFreeInterstitialConfig = {
+      isTesting: true,  
+      autoShow: true,
+      id: "ca-app-pub-3940256099942544/8691691433"
+    };
+    this.admobFree.interstitial.config(interstitialConfig);
+    this.admobFree.interstitial.prepare().then(() => {
+      
+      
+    }).catch(e => {
+
+    });
+
+  
+  }
+
+  runAd(){
+    this.showInterstitialAds();
+  }
+
 
 }

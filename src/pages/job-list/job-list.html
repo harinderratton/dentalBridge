@@ -32,29 +32,47 @@
 	 </div>
    </ion-col>
    </ion-row>
+
+
 <ion-list listview [ngClass]="{'active': selectedItem === 'item1'}" style="display:none" *ngIf="is_loaded">
-   <ion-item  *ngFor="let location of locations">
-      <ion-thumbnail item-start>
-		  <img src="{{location.face}}">
-		  
-		  <span heart (click)="unsaveJob(location.job_id)" *ngIf="allIds.indexOf(location.job_id)>=0"><ion-icon name="ios-heart" style="color: red;"></ion-icon></span>
+	<span  *ngFor="let location of locations; let i = index">
 
-		  <span heart (click)="saveJob(location.job_id, location.user_id)" *ngIf="allIds.indexOf(location.job_id)==-1"><ion-icon name="ios-heart"></ion-icon></span>
+		<ion-item >
+			<ion-thumbnail item-start>
+				<img src="{{location.face}}">
+				
+				<span heart (click)="unsaveJob(location.job_id)" *ngIf="allIds.indexOf(location.job_id)>=0"><ion-icon name="ios-heart" style="color: red;"></ion-icon></span>
+	  
+				<span heart (click)="saveJob(location.job_id, location.user_id)" *ngIf="allIds.indexOf(location.job_id)==-1"><ion-icon name="ios-heart"></ion-icon></span>
+	  
+			</ion-thumbnail>
+			<h2 (click)="goToJobDetails(location)">{{location.name}}</h2>
+			<p address><img src="assets/img/building.png"/><span>{{location.address}}</span></p>
+			  <p briefcase><img src="assets/img/briefcase.png"/><span>Experience: {{location.experience}}</span></p>
+			
+			  <ion-row salary-apply>
+			   <ion-col  col-12>
+				 <!-- <ion-badge>${{location.minsalary}} - ${{location.maxsalary}}
+				 </ion-badge> -->
+			   </ion-col>
+				
+			  </ion-row>
+	  
+		  </ion-item>
 
-      </ion-thumbnail>
-      <h2 (click)="goToJobDetails(location)">{{location.name}}</h2>
-	  <p address><img src="assets/img/building.png"/><span>{{location.address}}</span></p>
-		<p briefcase><img src="assets/img/briefcase.png"/><span>Experience: {{location.experience}}</span></p>
-		<ion-row salary-apply>
-		 <ion-col  col-12>
-		   <!-- <ion-badge>${{location.minsalary}} - ${{location.maxsalary}}
-		   </ion-badge> -->
-		 </ion-col>
-		  
-		</ion-row>
 
- 
-    </ion-item>
+		  <ion-item addlist *ngIf="(i+1) % 3 == 0" (click)="runAd()">
+			<ion-thumbnail item-start >
+				<img src="assets/images/icon.png">
+			</ion-thumbnail>
+			<h2 style="background-color: yellow;
+			width: 26px;
+			height: 23px; padding-right: 0 !important;">Ad</h2>
+			<p briefcase>Ad description</p>
+		  </ion-item>
+
+	</span>
+
 
 
   <!--ion-item *ngFor="let location of locations">

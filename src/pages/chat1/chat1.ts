@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Service1 } from '../../providers/service1';
-
+import { AdMobFree,AdMobFreeInterstitialConfig} from '@ionic-native/admob-free';
 @IonicPage()
 @Component({
   selector: 'page-chat1',
@@ -17,7 +17,7 @@ user_image:any;
 message:any;
 roomId:any;
 errors:any = ['',null,undefined];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public service: Service1) {
+  constructor( private admobFree: AdMobFree, public navCtrl: NavController, public navParams: NavParams, public service: Service1) {
   	this.my_id = navParams.get('my_id');
   	this.from_id = navParams.get('from_id');
   	this.user_name = navParams.get('user_name');
@@ -26,7 +26,8 @@ errors:any = ['',null,undefined];
   }
 
   ionViewDidLoad() {
-    this.getChat();
+	this.getChat();
+	this.runAd();
   }
 
   getChat(){
@@ -69,6 +70,27 @@ errors:any = ['',null,undefined];
   			self.content.scrollToBottom(300);
   		}
   	},100);
+  }
+
+  showInterstitialAds(){
+    let interstitialConfig: AdMobFreeInterstitialConfig = {
+      isTesting: true,  
+      autoShow: true,
+      id: "ca-app-pub-3940256099942544/8691691433"
+    };
+    this.admobFree.interstitial.config(interstitialConfig);
+    this.admobFree.interstitial.prepare().then(() => {
+      
+      
+    }).catch(e => {
+
+    });
+
+  
+  }
+
+  runAd(){
+    this.showInterstitialAds();
   }
 
 }
