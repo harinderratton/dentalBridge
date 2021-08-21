@@ -1,0 +1,219 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+	<button ion-button menuToggle> 
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{"Profile" | translate}}</ion-title>
+	
+	<ion-buttons end>
+	<!-- <button ion-button > 
+      <ion-icon name="notifications" (click)="redirectTo()"></ion-icon>
+    </button> -->
+	
+	</ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<ion-content>
+
+<div profileinfo>
+<div profileimg>
+  <img src="assets/img/bg-profile.jpg"/>
+</div>
+<div userimg>
+  <label for="editphoto">
+     <ion-icon name="ios-create-outline"></ion-icon>
+  </label>
+   <ng-container>
+             
+               <input type="file" id="editphoto" name="Choose File" (change)="onChange($event)" style="display:none">
+           </ng-container>
+   
+<ng-container *ngIf="userProfiles?.photoURL">
+            <img src="{{userProfiles.photoURL}}" width="80" height="80" >
+         </ng-container>
+         <ng-container *ngIf="!userProfiles?.photoURL" >
+            <img src="{{values.avatar}}" width="80" height="80">
+         </ng-container>
+<h2>{{name}}</h2>
+
+<h2 (click)="editEducation()" *ngIf="addressList.length!=0" editEdu><ion-icon name="create"></ion-icon>Edit Education </h2>
+<h2  addedu (click)="addNewEducation()" *ngIf="addressList.length==0">Add Education <a href="javascript:void(0)" edited><ion-icon name="ios-create-outline"></ion-icon></a></h2>
+
+</div>
+</div>
+<div profilesetting>
+     <ion-segment [(ngModel)]="profiletab">
+		<ion-segment-button value="Basic">
+		   Basic Info
+		</ion-segment-button>
+			<ion-segment-button value="pwd">
+		   Change Password
+		</ion-segment-button>
+  </ion-segment>
+   <div [ngSwitch]="profiletab">
+	<ion-list *ngSwitchCase="'Basic'">
+	<form>
+            
+             <div form-group>
+               <label>First Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input placeholder="Enter First Name" type="text" value="{{userProfiles.displayName}}" [(ngModel)]="userProfiles.displayName" name="fname" [disabled]="!isEdit"></ion-input>
+               </ion-item>
+             </div> 
+
+             <div form-group>
+              <label>Last Name</label>
+               <ion-item>
+                 <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                 <ion-input placeholder="Enter Last Name" type="text" value="{{userProfiles.lastName}}" [(ngModel)]="userProfiles.lastName" name="lname" [disabled]="!isEdit"></ion-input>
+              </ion-item>
+            </div> 
+
+			   
+			   <div form-group>
+               <label>Email Address</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                 <ion-input  placeholder="Enter Email Address"  type="email" value="{{userProfiles.email}}" [(ngModel)]="userProfiles.email" name="email" disabled="true" [disabled]="isFacebook == true ? true : (!isEdit)"></ion-input>
+               </ion-item>
+         </div> 
+
+
+
+			 <!-- <div form-group>
+              <label>Phone Number</label>
+              <ion-item lines="none">
+                  <ion-label>
+                      <ion-icon name="ios-call-outline"></ion-icon>
+                  </ion-label>
+                  <ion-input required type="text"  placeholder="Enter Phone Number" value="{{userProfiles.phone}}" [(ngModel)]="userProfiles.phone" name="phone" [disabled]="!isEdit"></ion-input>
+              </ion-item>
+			</div> -->
+
+
+
+		    	<div form-group>
+<label>Profession </label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-person-outline"></ion-icon>
+</ion-label>
+
+<ion-select  placeholder="Select Your Profession" [(ngModel)]="userProfiles.profession" name="profession" [disabled]="!isEdit">
+  <ion-option value="1"> Dental Assistant  </ion-option>
+  <ion-option value="2">  Dental Hygienist    </ion-option>
+  <ion-option value="3">  Dentist     </ion-option>
+  <ion-option value="4">Front Desk</ion-option>
+  </ion-select>
+</ion-item>
+ 
+</div>
+			<div form-group>
+			<label>Miles From Their Vicinity</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-speedometer-outline"></ion-icon>
+			</ion-label>
+			<ion-input required type="text"  placeholder="Enter Miles" [(ngModel)]="userProfiles.miles" name="miles" [disabled]="!isEdit"></ion-input>
+			</ion-item>
+			</div>
+	<div form-group>
+<label>Gender </label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-person-outline"></ion-icon>
+</ion-label>
+
+				 <ion-select [(ngModel)]="userProfiles.europeResult" name="europe" placeholder="Select" [disabled]="!isEdit">
+              <ion-option value="Male"> Male </ion-option>
+              <ion-option value="Female"> Female   </ion-option>
+		 
+               </ion-select>
+</ion-item>
+</div>
+			 
+			<div form-group>
+			<label>Birthday</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-calendar-outline"></ion-icon>
+			</ion-label>
+			 <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]="userProfiles.birthday" name="birthday" [disabled]="!isEdit"></ion-datetime>
+			</ion-item>
+      </div>
+      
+ 
+        <p class="errorMsg" style="color: red">{{errorRegisterMessage}}</p>
+     
+
+  <button round ion-button btnsubmit text-uppercase block color="secondary"  [disabled]="disableSubmit" (click)="isEdit == true ? updateInfo() : editProfile()" >
+        {{buttonText}}
+      </button>
+
+      <button round ion-button btnsubmit text-uppercase block color="secondary"  [disabled]="disableSubmit" (click)="cancel()" *ngIf= "isEdit">
+        Cancel
+      </button>
+      
+	</form>
+	
+	
+	
+	</ion-list>
+		<ion-list *ngSwitchCase="'pwd'" >
+		<ng-container  *ngIf="!userProfiles.facebook">
+         <form #f="ngForm">
+
+          <div form-group>
+            <label>{{"Current Password" | translate}}</label>
+             <ion-item>
+               <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+                <ion-input required type="password" placeholder="Enter Current Password"  [(ngModel)]="oldPassword" name="oldPassword"></ion-input>
+            </ion-item>
+         </div> 
+
+
+		 
+		   <div form-group>
+               <label>{{"New Password" | translate}}</label>
+                <ion-item>
+                   <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+				           <ion-input required type="password" placeholder="Enter New Password"  [(ngModel)]="newPassword" name="password"></ion-input>
+               </ion-item>
+      </div> 
+
+
+      <div form-group>
+        <label>{{"Confirm Password" | translate}}</label>
+         <ion-item>
+           <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+           <ion-input required type="password" placeholder="Confirm Password"  [(ngModel)]="confirmPassword" name="password"></ion-input>
+        </ion-item>
+      </div> 
+
+
+		 
+
+              <p class="errorMsg" style="color: red">{{passwordError}}</p>
+
+
+      <button round ion-button btnsubmit text-uppercase block color="secondary" (click)="changePassword(form)">
+        
+        <div>{{"ChangePassword" | translate}}</div>
+      </button>
+
+            
+         </form>
+      </ng-container>
+		
+		
+
+	
+	</ion-list>
+	</div>
+  
+  
+   
+</div>
+ 
+</ion-content>

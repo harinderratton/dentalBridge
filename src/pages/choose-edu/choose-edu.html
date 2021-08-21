@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Apply Now</ion-title>
+	
+	
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div class="register-form" >
+	<div logo>
+	 <!-- <h1>Create Account</h1> -->
+	  <h2>Fill the following to proceed.</h2>
+	</div>
+		  <!--ion-card-->
+		 
+				<ion-list>
+							<div form-group>
+								<label>Please confirm education</label>
+									<ion-item>
+									<ion-label><ion-icon name="ios-school-outline"></ion-icon></ion-label>
+									<ion-textarea rows="4" required type="text"  placeholder="Confirm education"  name="education" [(ngModel)] = "confirmEducation"></ion-textarea>
+								</ion-item>
+							</div> 
+
+							<div form-group>
+								<label>Years of experience</label>
+								<ion-item>
+								<ion-label><ion-icon name="ios-clipboard-outline"></ion-icon></ion-label>
+								<ion-input required type="number"  placeholder="Years of experience"  name="education" [(ngModel)] = "experience"></ion-input>
+								</ion-item>
+							</div> 
+
+							<div form-group>
+								<label>When are you available to start?</label>
+								<ion-item>
+								<ion-label><ion-icon name="ios-briefcase-outline"></ion-icon></ion-label>
+								<ion-textarea rows="4" required type="text"  placeholder="When are you available to start?"  name="education" [(ngModel)] = "whenCanJoin"></ion-textarea>
+								</ion-item>
+							</div> 
+
+
+							<div form-group *ngIf="errors.indexOf(errorRegisterMessage) == -1">
+						 
+								<ion-item>
+									<p class="errorMsg"  style="color: red">{{errorRegisterMessage}}</p>
+								</ion-item>
+							</div> 
+ 
+
+				</ion-list>
+				   
+				<div login-btn>
+					<button round ion-button block color="secondary" type="submit" class="button button-block button-default" text-uppercase    (click)="finish()">Send to Employer</button>
+				 </div>
+		  <!--/ion-card-->
+	   </div>
+	
+	
+	</ion-content>
+	

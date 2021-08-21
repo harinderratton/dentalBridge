@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>View Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div *ngIf="userProfiles">
+<div jobinfo>
+	<div jobimg>
+	  <img src="assets/img/bg-profile.jpg">
+	</div>
+	<div userimg>
+	        <ng-container *ngIf="userProfiles.photoURL" >
+            <img src="{{userProfiles.photoURL}}">
+			</ng-container>
+	       <ng-container *ngIf="!userProfiles.photoURL">
+            <img src="{{values.avatar}}">
+			</ng-container>
+	</div>
+	<h2>{{userProfiles.displayName}} {{userProfiles.lastName}}</h2>
+</div>
+<div jobdetail>
+	<div joblist>
+	 
+           <ion-item>
+			<ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Full Name</h2> 
+			  <p> {{userProfiles.displayName}} {{userProfiles.lastName}}</p>			
+			</ion-item>
+			<ion-item>
+			<ion-icon item-start name="ios-mail-outline"></ion-icon> 			
+			  <h2>Email</h2> 
+			  <p>{{userProfiles.email}}</p>			
+			</ion-item>
+
+			<ion-item *ngIf="userType!='manager' && errors.indexOf(userProfiles.europeResult)==-1">
+			  <ion-icon item-start name="ios-person-outline"></ion-icon> 			
+			  <h2>Gender</h2> 
+			  <p>{{userProfiles.europeResult}}</p>			
+			</ion-item>
+
+
+		    <ion-item *ngIf="userType!='manager'  && errors.indexOf(userProfiles.birthday)==-1">
+			  <ion-icon item-start name="ios-calendar-outline"></ion-icon> 			
+			  <h2>Birthday</h2> 
+			  <p>{{userProfiles.birthday | date}}</p>			
+			</ion-item>
+
+
+			<!-- <ion-item *ngIf="errors.indexOf(userProfiles.phone)==-1">
+			<ion-icon item-start name="ios-call-outline"></ion-icon> 			
+			  <h2>Phone Number</h2> 
+			  <p>{{userProfiles.phone}}</p>			
+			</ion-item> -->
+
+
+			<ion-item *ngIf="userType!='manager' && errors.indexOf(userProfiles.profession)==-1">
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Profession</h2> 
+			  <p>{{userProfiles.profession != '' && userProfiles.profession != undefined ? profession_types[userProfiles.profession] : ''}}</p>			
+			</ion-item>
+
+			<ion-item *ngIf="userType!='manager' && errors.indexOf(userProfiles.miles)==-1">
+			<ion-icon item-start name="ios-speedometer-outline"></ion-icon> 			
+			  <h2>Miles  From Their Vicinity</h2> 
+			  <p>{{userProfiles.miles}} Miles</p>			
+			</ion-item>
+
+			<ion-item *ngIf="userType=='manager' && errors.indexOf(userProfiles.company)==-1">
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Company</h2> 
+			  <p>{{userProfiles.company}}</p>			
+			</ion-item>
+
+
+			<ion-item *ngIf="userType=='manager' && errors.indexOf(userProfiles.company_size)==-1">
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Company Size</h2> 
+			  <p>{{userProfiles.company_size}}</p>			
+			</ion-item>
+
+			<ion-item *ngIf="userType=='manager' && errors.indexOf(userProfiles.is_recruiter)==-1">
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Are you a recruiter</h2> 
+			  <p *ngIf="userProfiles.is_recruiter == 'yes'"> Yes</p>
+			   <p *ngIf="userProfiles.is_recruiter == 'no'"> No</p>			
+			</ion-item>	
+
+	</div>
+	</div>
+</div>
+
+  <!--div class="main-cnt" *ngIf="userProfiles">
+    <img src="../assets/img/dp.jpg" class="dp">
+    <ion-list no-lines>
+	       <div *ngIf="userProfiles.photoURL" >
+          
+            <img src="{{userProfiles.photoURL}}">
+			</div>
+       
+		 
+	
+	   
+	      <div *ngIf="!userProfiles.photoURL">
+            
+            <img src="{{values.avatar}}">
+			</div>
+       
+		 
+	
+		 
+		
+		 
+
+		 <ion-item>
+      {{userProfiles.displayName}} {{userProfiles.lastName}}
+</ion-item>	  
+	
+	
+      <ion-item>
+	  
+        <ion-icon name="contacts" item-start></ion-icon>
+        Email: {{userProfiles.email}}
+        
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-facebook" item-start></ion-icon>
+        Gender: {{userProfiles.europeResult}}
+        
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-instagram" item-start></ion-icon>
+        Birthday: {{userProfiles.birthday}}
+        
+      </ion-item>
+	  
+
+	  
+	  
+	 
+	  
+	  
+	 
+	  
+	 
+	  
+	  
+	  
+	
+	  
+    </ion-list>
+	
+	
+	 
+  </div-->
+
+</ion-content>

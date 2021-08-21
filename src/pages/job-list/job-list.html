@@ -1,0 +1,113 @@
+<ion-header>
+	<ion-navbar color="primary" text-center>
+	<button ion-button menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	  </button>  
+	  <ion-title>Home</ion-title>
+	</ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+<div class="search" *ngIf="is_loaded">
+ <ion-searchbar (ionInput)="searchItem($event)" placeholder="Search jobs here...">
+    </ion-searchbar>
+</div>
+<!-- <ng-adsense
+			[adClient]="'ca-pub-8514227015105788'"
+			[display]="'inline-block'"
+			[width]="100"
+			[height]="100"
+			></ng-adsense> -->
+  <ion-row  hometop *ngIf="is_loaded">
+	  <ion-col class="p-0" col-8>
+	  <h2 heading>
+	  Recently Added
+	  </h2>
+	
+	  </ion-col>
+	  <ion-col class="p-0"   text-right col-4>
+	 <div listgrid class="ion-text-center">
+		<a href="javascript:void(0)" (click)="openFilterModal()" [ngClass]="{'active': filter.length!=0}" class="listicon"><ion-icon name="ios-funnel-outline"></ion-icon></a>
+	  <a href="javascript:void(0)" (click)="selectedItem = 'item1'" [ngClass]="{'active': selectedItem === 'item1'}" class="listicon"><ion-icon icons name="ios-list-outline"></ion-icon></a>
+	  <a href="javascript:void(0)"  (click)="selectedItem = 'item2'" [ngClass]="{'active': selectedItem === 'item2'}" class="gridicon "><img  icons src="assets/img/map.png"/></a>
+	 
+	 </div>
+   </ion-col>
+   </ion-row>
+
+
+<ion-list listview [ngClass]="{'active': selectedItem === 'item1'}" style="display:none" *ngIf="is_loaded">
+	<span  *ngFor="let location of locations; let i = index" class="parent">
+
+		<ion-item (click)="goToJobDetails(location)">
+			
+			<ion-thumbnail item-start>
+				<img src="{{location.face}}">
+			</ion-thumbnail>
+			<h2 >{{location.name}}</h2>
+			<ion-badge class="badgeINfo" color="primary" *ngIf="location.shortTermJob">Valid till: {{location.validTill | date: 'mediumDate'}}</ion-badge>
+			<p address><img src="assets/img/building.png"/><span>{{location.address}}</span></p>
+			  <p briefcase><img src="assets/img/briefcase.png"/><span>Experience: {{location.experience}}</span></p>
+			 <!-- <div style="opacity:0">emply</div> -->
+			  <ion-row salary-apply>
+			   <ion-col  col-12>
+				 <!-- <ion-badge>${{location.minsalary}} - ${{location.maxsalary}}
+				 </ion-badge> -->
+			   </ion-col>
+				
+			  </ion-row>
+	  
+		  </ion-item>
+
+		  <span class="heart" (click)="unsaveJob(location.job_id)" *ngIf="allIds.indexOf(location.job_id)>=0"><ion-icon name="ios-heart" style="color: red;"></ion-icon></span>
+	  
+		  <span class="heart" (click)="saveJob(location.job_id, location.user_id)" *ngIf="allIds.indexOf(location.job_id)==-1"><ion-icon name="ios-heart"></ion-icon></span>
+
+
+		  <span *ngFor="let ad of ads ; let ii = index">
+			<ion-item addlist *ngIf="(i+1) % 3 == 0 && (i== ad.index)" (click)="runAd()">
+				<ion-thumbnail item-start >
+					<img [src]="ad.image" *ngIf="errors.indexOf(ad.image) == -1">
+					<img src="assets/img/New_Logo_AD.jpeg" *ngIf="errors.indexOf(ad.image) >= 0">
+				</ion-thumbnail>
+				<h2 style="
+				height: 23px;">{{ad.title}}</h2>
+				<p briefcase>{{ad.description}}</p>
+			  </ion-item>
+
+		</span>
+
+
+	</span>
+
+
+
+  <!--ion-item *ngFor="let location of locations">
+    <ion-thumbnail item-start>
+      <img src="{{location.face}}">
+    </ion-thumbnail>
+	<ion-badge (click)="goToJobDetails(location)">
+    <h2>{{location.name}}</h2>
+	</ion-badge>
+	<p>Location • {{location.address}}</p>
+    <p>Posted • {{location.timeStamp | date}}</p>
+	<p>Expires • {{location.localdate}}</p>
+  </ion-item-->
+	<!--
+    <button ion-button clear item-end (click)="goToJobDetails(location)">
+	
+	<ion-badge style = "height:100%;">
+	View
+	
+	</ion-badge>
+	</button>
+	-->
+</ion-list>
+<ion-list gridview [ngClass]="{'active': selectedItem === 'item2'}" style="display:none">
+	<div #map style="  height:100%; width: 100%" id="map"></div>
+  </ion-list>
+
+  <p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="!is_loaded">Loading...</p>
+  <p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="responseCame && locations.length==0">No data found</p>
+
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-item>
+	    <ion-avatar item-start>
+		   <img *ngIf="errors.indexOf(user_image) == -1" src="{{user_image}}"/>
+        <img *ngIf="errors.indexOf(user_image) >= 0" src="assets/images/person.png"/>
+		   <!-- <span></span> -->
+	    </ion-avatar>
+		<h2>{{user_name}}</h2>
+	</ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #content>
+  <ng-container *ngFor="let chat of chats ">
+    <div [ngClass]="chat.fromId == my_id ? 'sender' : 'receiver'">
+      <div textcontent>
+        <p>
+      	 {{chat.message}}
+      	</p>
+      </div>
+      <ion-note>{{chat.date | timeAgo}}</ion-note>
+    </div>
+  </ng-container>
+</ion-content>
+<ion-footer>
+<ion-item>
+<ion-input [(ngModel)]="message" placeholder="Type a message"></ion-input>
+<button item-end color="primary"  ion-button (click)="send()"> 
+  <ion-icon name="ios-send"></ion-icon> 
+</button>
+</ion-item>
+</ion-footer>

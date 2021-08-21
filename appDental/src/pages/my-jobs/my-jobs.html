@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>  
+    <ion-title>Applied Jobs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<!-- <ng-adsense
+			[adClient]="'ca-pub-8514227015105788'"
+			[display]="'inline-block'"
+			[width]="100"
+			[height]="100"
+			></ng-adsense> -->
+<ion-list *ngIf = "myJobs">
+   <ion-item  *ngFor="let location of myJobs">
+      <ion-thumbnail item-start>
+
+        <img src="{{location.face}}">
+        
+      </ion-thumbnail>
+
+ 
+
+	<!-- <ion-badge class="badgeINfo" color="primary" ></ion-badge> -->
+
+      <h2 (click)="goToJobDetails(location)">{{location.name}}</h2><ion-icon name="ios-chatbubbles-outline" (click)="initiateChat(location.employer_id)" class="messages"></ion-icon>
+	  <p address><img src="assets/img/building.png"/><span>{{location.address}}</span></p>
+		<p briefcase><img src="assets/img/briefcase.png"/><span>Experience:  {{worked}}</span></p>
+		<ion-row salary-apply>
+		 <ion-col  col-6>
+		   <ion-badge>${{location.minsalary}} - ${{location.maxsalary}}
+		   </ion-badge>
+		 </ion-col>
+		  <ion-col  col-6 class="btn-right" *ngIf="location.isViewed">
+		 <ion-badge  color="secondary" shape="round" >Application Viewed</ion-badge>
+		 </ion-col>
+		</ion-row>
+    </ion-item>
+
+ 
+</ion-list>
+<div *ngIf = "!myJobs">
+	You didn't send any resume to job.	
+</div>
+
+<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="responseCame && myJobs.length==0">No data found</p>
+</ion-content>

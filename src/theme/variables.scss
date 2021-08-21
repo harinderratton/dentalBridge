@@ -1,0 +1,136 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary: #204f90,
+  secondary: #58aef9,
+  danger: #f53d3d,
+  light: #f4f4f4,
+  white: #fff,
+  dark: #222,
+);
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+$primary: #204f90;
+$secondary: #58aef9;
+$white: #fff;
+$orange: #ffba00;
+$ltgrey: #f1f1f1;
+$ltblue: #d9e5ef;
+$grey: #b5b4b4;
+$grey3: #f8f8f8;
+$grey2: #afb8ca;
+$grey4: #999999;
+$dgrey: #43444f;
+$fb: #3c5a99;
+$bggradient: linear-gradient(
+  0deg,
+  rgba(32, 79, 144, 1) 0%,
+  rgba(31, 95, 182, 1) 100%
+);
+$black: #000;
+$black2: #232323;
+$black3: #3a3a3a;
+$black4: #4a4a4a;
+
+.locat-box {
+  clear: both;
+  display: flex;
+  border: 2px solid #f1f1f1 !important;
+  border-radius: 6px;
+  ion-label {
+    width: 30px;
+    min-width: 30px;
+    text-align: center;
+    padding-left: 14px;
+    flex: 0 !important;
+    ion-icon {
+      color: #204f90;
+      font-size: 28px;
+    }
+    ngxgeo-autocomplete {
+      width: calc(100% - 30px);
+    }
+  }
+
+  .custom-autocomplete {
+    margin: 0 !important;
+    input#search_places {
+      background: transparent;
+      border: none;
+      padding-left: 15px;
+      /* margin-bottom: 10px; */
+      &:focus,
+      &:active {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    button.search-icon {
+      border: none;
+      i.search-default-icon {
+        height: 17px;
+        width: 17px;
+      }
+    }
+  }
+}

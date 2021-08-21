@@ -1,0 +1,111 @@
+
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content" *ngIf="is_loaded">
+<div logo  >
+  <img src="assets/img/logo.png"/>
+  <h2>Job Manager</h2>
+  <!-- <h2>Sign in to continue</h2> -->
+</div>
+    <!-- Logo -->
+    <!--div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Job Poster</strong>
+      </h2>
+    </div-->
+
+    <!-- Login form -->
+    <form class="list-form">
+     
+	  <div form-group>
+      <label>Email Address</label>
+      <ion-item lines="none">
+		<ion-label>
+		<ion-icon name="ios-mail-outline"></ion-icon>
+		</ion-label>
+       <ion-input required placeholder="Enter Email Address" type="text" [(ngModel)]="form.email" name = "email"></ion-input>
+      </ion-item>
+     </div>
+    <div form-group>
+      <label>Password</label>
+      <ion-item lines="none">
+		<ion-label>
+		<ion-icon name="ios-lock-outline"></ion-icon>
+		</ion-label>
+       <ion-input required type="password"  placeholder="Enter Password" [(ngModel)]="form.password" name="password"></ion-input>
+      </ion-item>
+     </div>
+
+
+      <!--ion-item style = "background:none;">
+        <ion-label floating>
+          
+          Password
+        </ion-label>
+        <ion-input required type="password" [(ngModel)]="form.password" name="password"></ion-input>
+      </ion-item-->
+
+      <div class="error-message">
+               <ion-label color="danger" text-wrap>{{errorSigninMessage}}</ion-label>
+            </div>
+    </form>
+<div form-group forgot >
+<a  tappable (click)="forgotPass()" href="javascript:void(0)">Forgot Password ?</a>
+
+</div>
+    <!--p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>Forgot Password?</strong></p-->
+
+    <div login-btn>
+      <button [disabled]="disableLogin" round medium icon-start block ion-button color="secondary" tappable (click)="login(form.email,form.password)">
+        <!--ion-icon name="log-in"></ion-icon-->
+       LOGIN
+      </button>
+
+      <button round medium icon-start block ion-button color="secondary" tappable (click)="back()">
+        <!-- <ion-icon name="log-in"></ion-icon> -->
+       BACK
+      </button>
+
+	  <!--
+      <p text-center ion-text color="secondary">Or Sign in with:</p>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button icon-only block class="btn-facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+      
+          <ion-col col-6>
+            <button ion-button icon-only block class="btn-gplus">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+	  
+	  -->
+
+    </div>
+
+<div btn-signup class="ion-text-center">
+<p>Don't have an account ? <a tappable (click)="goToRegister()" href="javascript:void(0)">Sign Up Here</a></p>
+
+</div>
+
+<div btn-facebook > 
+  <button (click)="fbLogin()" round medium icon-start block ion-button class="btn-facebook" >
+              <span fb-icon><img src="assets/img/fb.png"/></span>  Login With Facebook
+            </button>
+
+
+</div>
+    <!-- Other links -->
+    <!--div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="goToRegister()">New here? <strong>Sign up</strong></span>
+    </div-->
+
+  </div>
+  <p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="!is_loaded">Loading...</p>
+</ion-content>

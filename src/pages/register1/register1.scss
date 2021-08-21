@@ -1,0 +1,153 @@
+
+ion-header
+{
+&[headertrans]
+{
+ ion-navbar
+{
+ .toolbar-background {
+    background: $white!important;
+}
+}
+}
+}
+page-register1 {
+.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: none!important;
+    box-shadow: none!important;
+}	[btn-facebook]
+	{    text-align:center;
+		button
+		 {min-height: 48px;
+		 --box-shadow:none;
+		font-weight: 500;
+		font-size: 15px;
+		text-transform: Capitalize;
+		background: $fb!important;
+		[fb-icon] {
+			background: #334d82;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			position: absolute;
+			left: 7px;
+			img
+			{
+			height: 20px;
+			margin-top: 7px;
+			}
+		 }
+		}
+	}
+	ion-header
+	{
+		&:after
+		{
+		display:none!important;
+		}
+	}
+	ion-content
+	{padding-top: 0px!important;
+	
+	.scroll-content
+	{
+	padding-top: 0px!important;
+	}
+	
+	.register-form
+	{
+	  [logo]
+	  {text-align: center;
+	    margin-bottom: 20px;
+	h1
+	{
+	    margin: 0px;
+	    color:$primary;
+		font-size: 30px;
+		font-weight: 600;
+	}
+	h2
+	{   
+		margin: 5px 0px 0px;
+		color: $grey2;
+		font-size: 20px;
+		font-weight: 400;
+	}
+	  }
+	   [login-btn]
+  {
+    button
+	{
+	min-height: 48px;
+    box-shadow: 5px 5px 20px rgba(32, 79, 144, 0.15);
+    font-weight: 500;
+    font-size: 15px;
+	}
+  }
+  [btn-signup ]
+{  font-size: 15px;
+    color: $grey;
+    font-weight: 500;
+    margin-top: 25px;
+	text-align:center;
+    margin-bottom: 25px;
+ a
+ {  
+ color:$primary;font-weight: 500;
+ text-decoration:none!important;
+ }
+}
+ [form-group]
+ {    
+   margin-bottom: 12px;
+  ion-item{
+  .item-inner
+  {
+  border: none;
+    box-shadow: none!important;
+  }box-shadow: none!important;
+       border: 2px solid $ltgrey!important;
+    border-radius: 6px;
+   padding-left: 18px;
+   height: 52px;
+	ion-icon
+	{color:$primary;font-size: 28px;
+	}ion-select
+	{
+	min-width: calc(100% - 30px);
+    padding-left: 0px;
+	}
+	ion-input
+	{
+	color:$dgrey;
+	}
+}
+ 
+  &[forgot] 
+ {text-align:right;font-size: 16px;
+ a
+ {
+ color:$primary;font-weight: 500;
+ text-decoration:none!important;
+ }
+ }
+    label {
+    font-size: 15px;
+    margin-left: 44px;
+    position: relative;
+    top: 10px;
+    z-index: 9;
+    background:$white;
+    padding: 0px 7px;
+    color: $grey;
+    font-weight: 500;
+}
+}
+}
+	}
+}
+
+.checkbox {
+    position: relative;
+    top: 6px;
+}

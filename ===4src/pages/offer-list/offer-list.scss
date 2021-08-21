@@ -1,0 +1,114 @@
+/**Header Css Start **/
+ion-header{
+    &::after
+    {
+    display:none!important;
+    }
+    ion-navbar
+    {text-align:Center;
+     .toolbar-background
+     {   background: $bggradient!important;
+     
+     }
+     }
+    }
+    /**Header Css End **/
+    page-offer-list {
+    ion-content {
+        background: $grey3 url(../../assets/img/bg-grey.jpg);
+      /*background-position: -160px -65px;*/
+        background-size: cover;
+    background-position: top;
+        background-repeat: no-repeat;
+        
+        
+         ion-item
+        {
+            border-radius: 8px; 
+           margin-bottom: 15px!important;
+            padding: 0px!important;
+            .item-inner
+            {
+                border:none!important;
+            }
+            ion-thumbnail
+            {   width: 100px;
+        height: 100%;
+        margin: 0px!important;
+        position:relative;
+    img {
+        width: auto!important;
+        height: auto!important;
+    }
+        .date-icn
+        {           line-height: 1.3;
+                     width: 40px;
+                    height: 40px;
+                    background: linear-gradient(to right, #8c8c8c, #000000);
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    font-size: 10px;
+                    font-weight: 600;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: 0;
+                    z-index: 11;
+                    text-align:center;
+                    left: 0;
+                    /*small  {
+                        font-size: 10px;
+                        color: rgba(255, 255, 255, 0.82);
+                        font-weight: 400;
+                        letter-spacing: 0.5px;
+                    }*/
+        }
+    
+            }
+            ion-label
+            {    white-space: normal;margin: 11px 8px 11px 0!important;
+               padding-left: 15px;
+                h2
+                {
+                       margin: 0px 0px 7px!important;    padding-right: 5px;
+        font-size: 15px!important;
+        color: $black3;
+        font-weight: 600!important;
+                }
+                p
+                {     
+                margin-bottom: 5px!important;   padding-right: 5px;
+                line-height: 1.25!important;
+                font-size: 13px;
+                display:flex!important;
+            
+                &[address]
+                {
+                color:$black4;
+                ion-icon
+                {
+                    color:$secondary;
+                    font-size: 16px;
+                    margin-right: 6px;
+                }
+                }
+                }
+            }
+        
+        [ accept-reject]
+        {margin-top: 5px;
+    ion-badge	{
+         font-size: 11px;
+        box-shadow: none;
+        border-radius: 30px;
+        font-weight: 600;
+        padding: 6px 10px;
+        
+        }
+        }
+        }
+    }
+    }
+    

@@ -1,0 +1,336 @@
+<ion-header>
+  <ion-navbar color="primary">
+  <button ion-button menuToggle> 
+     <ion-icon name="menu"></ion-icon>
+   </button>
+   <ion-title>Post Job</ion-title>
+ </ion-navbar>
+</ion-header>
+<ion-content padding>
+<!-- <ng-adsense
+			[adClient]="'ca-pub-8514227015105788'"
+			[display]="'inline-block'"
+			[width]="100"
+			[height]="100"
+			></ng-adsense> -->
+     <form #f="ngForm">
+        <ion-list>
+
+   <div form-group>
+      <label>Short Term Job</label>
+      <ion-item>
+      <ion-label>
+      <ion-icon name="ios-time-outline" ></ion-icon>
+      </ion-label>
+      <ion-toggle [(ngModel)]="form.shortTermJob" name="shortTermJob" ></ion-toggle>
+      </ion-item>
+   </div>
+
+   <div form-group *ngIf="form.shortTermJob">
+      <label>Date of requirement</label>
+      <ion-item>
+      <ion-label>
+      <ion-icon name="ios-calendar-outline" ></ion-icon>
+      </ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="form.jobRequiredOn" name="something" [min] = "minDate"></ion-datetime>
+      </ion-item>
+   </div>
+
+
+   <div form-group>
+   <label>Company Name</label>
+   <ion-item>
+   <ion-label>
+   <ion-icon name="ios-briefcase-outline"></ion-icon>
+   </ion-label>
+   <ion-input type="text" [(ngModel)]="form.company" name="company" placeholder="Enter Company Name" value=""></ion-input>
+   </ion-item>
+   </div>
+
+
+   <div form-group>
+   <label>Name</label>
+   <ion-item>
+   <ion-label>
+   <ion-icon name="ios-person-outline"></ion-icon>
+   </ion-label>
+     <ion-input  placeholder="Enter Name"  required type="text" [(ngModel)]="form.poster" name="options"></ion-input>
+   </ion-item>
+   </div>
+
+
+   <div form-group>
+   <label>Email</label>
+   <ion-item>
+   <ion-label>
+   <ion-icon name="ios-mail-outline"></ion-icon>
+   </ion-label>
+     <ion-input [(ngModel)]="form.email" name="email" placeholder="Enter Email"  value="" type="email"  name="options"></ion-input>
+   </ion-item>
+   </div>
+
+
+   <!-- <div form-group>
+   <label>Phone Number</label>
+   <ion-item>
+   <ion-label>
+   <ion-icon name="ios-call-outline"></ion-icon>
+   </ion-label>
+      <ion-input required placeholder="Enter Phone Number" type="text" [(ngModel)]="form.phone" name="phone"></ion-input>
+   </ion-item>
+   </div> -->
+   <!-- <div form-group>
+<label>Are You a Recruiter </label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.is_recruiter" name="is_recruiter" placeholder="Select">
+        <ion-option value="yes"> Yes </ion-option>
+        <ion-option value="no">  No </ion-option>
+       </ion-select>
+</ion-item>
+</div> -->
+<!-- <div form-group>
+<label>Company Size</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.company_size" name="company_size" placeholder="Select Company Size">
+        <ion-option value="1-15"> 1 - 15 </ion-option>
+        <ion-option value="16-50"> 16 - 50 </ion-option>
+        <ion-option value="51-100"> 51 - 100 </ion-option>
+       </ion-select>
+</ion-item>
+</div> -->
+
+<div form-group>
+<label>Job Title</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+ <ion-input placeholder="Enter Job Title" required type="text" [(ngModel)]="form.name" name="name"></ion-input>
+</ion-item>
+</div>
+<div form-group>
+<label>Location</label>
+<!-- <ion-item>
+
+<ion-select [(ngModel)]="form.address"  name="address" placeholder="Select">
+              <ion-option *ngFor="let item of addressList" value="{{item.name}}">{{item.name}}</ion-option>
+              </ion-select> 
+              
+</ion-item> -->
+<div class="locat-box">
+<ion-label>
+<ion-icon name="ios-pin-outline"></ion-icon>
+</ion-label>
+<ngxgeo-autocomplete [userSettings]="userSettings" (componentCallback)="autoCompleteCallback($event)"></ngxgeo-autocomplete>
+</div>
+</div>
+<div form-group>
+<label>Experience Required</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-input type="number" [(ngModel)]="form.experience" name="experience"  placeholder="Enter Experience in years"></ion-input>
+</ion-item>
+</div>
+<!-- <div form-group>
+<label>Min Salary</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-cash-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.minsalary"  name="minsalary" placeholder="Select">
+              <ion-option *ngFor="let item of getMinSalary" value="{{item.name}}">{{item.name}}</ion-option>
+</ion-select>	
+</ion-item>
+</div>
+<div form-group>
+<label>Max Salary</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-cash-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.maxsalary"  name="maxsalary" placeholder="Select">
+              <ion-option *ngFor="let item of getMaxSalary" value="{{item.name}}">{{item.name}}</ion-option>
+</ion-select>			
+</ion-item>
+</div> -->
+<!-- <div form-group>
+<label>Choose Finish Date</label>
+<ion-item heightauto>
+       
+        <span ion-datepicker (ionChanged)="setDate($event);" [value]="localDate" [min]="localDate" clear class="ScheduleDate">
+         <button ion-button full type="button" color="secondary" round class="book-button" style = "margin-bottom:10px"><span>Choose Finish Date</span></button>
+     </span>
+ 
+ 
+ <div *ngIf = "localdate">
+ 
+ <span>LocalDate: {{form.localDate | date}}</span>
+ 
+ </div>
+ 
+ <div *ngIf = "date">
+   
+ 
+   <h3>Selected Date: {{date | date}}</h3>
+   
+ </div>
+</ion-item>
+</div> -->
+<!-- <div form-group>
+<label>Qualificaton Required</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-school-outline"></ion-icon>
+</ion-label>
+<ion-select  placeholder="Select Option" [(ngModel)]="form.qualification" name="qualification">
+        <ion-option value="Higher Secondary"> Higher Secondary</ion-option>
+        <ion-option value="Graduation"> Graduation </ion-option>
+        <ion-option value="Post Graduation">Post Graduation   </ion-option>
+       </ion-select>
+</ion-item>
+</div> -->
+<div form-group>
+<label>Job Description</label>
+<ion-item heightauto>
+<textarea class="example"  type="text" [(ngModel)]="form.description" name="description" placeholder='Enter Job Description' style="width: 100%;height:100px;"></textarea>
+</ion-item>
+</div>
+<!-- <div form-group>
+<label>Category</label>
+<ion-item>
+<ion-label>
+<ion-icon name="ios-pricetags-outline"></ion-icon>
+</ion-label>
+ <ion-select [(ngModel)]="form.category"  name="category" placeholder="Select">
+              <ion-option *ngFor="let item of getCategoryName" value="{{item.id}}">{{item.name}}</ion-option>
+              </ion-select>
+</ion-item>
+</div> -->
+<div form-group>
+<label>Upload Image</label>
+  <ion-item heightauto>
+          
+              <input type="file" name="select Image" style="margin-bottom:10px;" (change)="onChange($event)" >
+            <ion-thumbnail *ngIf="downloadURL != null">
+                 <img src="{{downloadURL}}">
+              </ion-thumbnail>
+   </ion-item>
+</div>
+
+
+        <!---   <ion-item>
+              <ion-label floating>Job Title</ion-label>
+              <ion-input required type="text" [(ngModel)]="form.name" name="name"></ion-input>
+           </ion-item>
+     
+      ---
+     <!--
+      <ion-item>
+              <ion-label floating>Address</ion-label>
+              <ion-input required type="text" [(ngModel)]="form.address" name="info"></ion-input>
+           </ion-item>
+     --->
+     
+     <!--
+     <ion-item style="padding-top:10px" class="option">
+              <ion-label>Address</ion-label>
+              <ion-select [(ngModel)]="form.address"  name="address">
+              <ion-option *ngFor="let item of addressList" value="{{item.name}}">{{item.name}}</ion-option>
+              </ion-select>
+           </ion-item>
+     
+      <ion-item>
+              <ion-label floating>Phone</ion-label>
+              <ion-input required type="text" [(ngModel)]="form.phone" name="lat"></ion-input>
+           </ion-item>
+     
+     
+     <ion-item>
+              <ion-label floating>Job Poster Name</ion-label>
+              <ion-input required type="text" [(ngModel)]="form.poster" name="options"></ion-input>
+           </ion-item>
+     
+     
+     <ion-item style="padding-top:10px" class="option">
+              <ion-label>Min Salary</ion-label>
+              <ion-select [(ngModel)]="form.minsalary"  name="minsalary">
+              <ion-option *ngFor="let item of getMinSalary" value="{{item.name}}">{{item.name}}</ion-option>
+              </ion-select>
+           </ion-item>
+     
+     
+     <ion-item style="padding-top:10px" class="option">
+              <ion-label>Max Salary</ion-label>
+              <ion-select [(ngModel)]="form.maxsalary"  name="maxsalary">
+              <ion-option *ngFor="let item of getMaxSalary" value="{{item.name}}">{{item.name}}</ion-option>
+              </ion-select>
+           </ion-item>
+   
+     
+             
+        <span ion-datepicker (ionChanged)="setDate($event);" [value]="localDate" [min]="localDate" clear class="ScheduleDate">
+         <button ion-button full type="button" class="book-button" style = "margin-left:10%;width:75%;margin-right:10%;margin-top:30px;margin-bottom:20px;"><span>Choose Finish Date</span></button>
+     </span>
+ 
+ 
+ <div *ngIf = "localdate">
+ 
+ <span>LocalDate: {{form.localDate | date}}</span>
+ 
+ </div>
+ 
+ <div *ngIf = "date">
+   
+ 
+   <h3>Selected Date: {{date | date}}</h3>
+   
+ </div>
+     
+     <ion-item>
+              <textarea class="example"  type="text" [(ngModel)]="form.description" name="description" placeholder='Address Description' style = "width: 100%;height:200px;"></textarea>
+           </ion-item>
+     
+     <ion-item style="padding-top:10px" class="option">
+              <ion-label>category</ion-label>
+              <ion-select [(ngModel)]="form.category"  name="category">
+              <ion-option *ngFor="let item of getCategoryName" value="{{item.id}}">{{item.name}}</ion-option>
+              </ion-select>
+           </ion-item>
+     
+   
+     
+     
+     
+           <ion-item>
+              <ion-thumbnail *ngIf="downloadURL != null">
+                 <img src="{{downloadURL}}">
+              </ion-thumbnail>
+              <input type="file" name="select Image" (change)="onChange($event)" >
+           </ion-item>
+     
+     
+     -->
+   
+ 
+ 
+ 
+        </ion-list>
+     </form>
+     <div class="error-message">
+          <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+     </div>
+   <button btnpost round ion-button block color="secondary" [disabled]="disableSubmit" text-uppercase (click)="addCategry()">{{submitText}}</button>
+</ion-content>
+<!--ion-footer no-shadow>
+ <ion-toolbar position="bottom">
+  <button round ion-button block color="secondary" [disabled]="disableSubmit" text-uppercase (click)="addCategry()">Post Job</button>
+ </ion-toolbar>
+</ion-footer-->

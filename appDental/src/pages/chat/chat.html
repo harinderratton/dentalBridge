@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-item>
+	    <ion-avatar item-start>
+       <!-- <img src="{{speakerImage}}" *ngIf="errors.indexOf(speakerImage)==-1"/>
+       <img src="assets/img/100_1.jpg"  *ngIf="errors.indexOf(speakerImage)>=0"/> -->
+
+       <img src="{{speakerImage}}" *ngIf="errors.indexOf(speakerImage)==-1"/>
+       <img src="assets/images/person.png"  *ngIf="errors.indexOf(speakerImage)>=0"/>
+
+
+		   <span></span>
+	    </ion-avatar>
+		<h2>{{speakerFname}}</h2>
+	</ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding #content>
+
+  <ng-container *ngIf="!loader">
+
+     <span *ngFor="let item of chat">
+
+      <div receiver *ngIf="item.toId==user_id">
+        <div textcontent>
+          <p>
+          {{item.message}}
+        </p>
+        </div>
+          <ion-note>{{item.date  | timeAgo}}
+          </ion-note>
+        </div>
+      
+      
+         <div sender  *ngIf="item.fromId==user_id">
+         <div textcontent>
+          <p>
+            {{item.message}}
+        </p>
+        </div>
+          <ion-note>{{item.date  | timeAgo}}
+          </ion-note>
+        </div>
+  
+    </span>
+    </ng-container>
+
+
+  <!-- <ng-container *ngIf="loader">
+    <h5 class="loader">Loading...</h5>
+  </ng-container> -->
+
+  <p style="width: 100%; text-align: center; margin-top: 48%;color:lightgrey" *ngIf="loader">Loading...</p>
+
+</ion-content>
+<ion-footer>
+<ion-item>
+<ion-input placeholder="Type a message" [(ngModel)]="message"></ion-input>
+<button item-end color="primary"  ion-button (click)="sendMessage()"> 
+<ion-icon name="ios-send"></ion-icon> 
+</button>
+</ion-item>
+</ion-footer>

@@ -1,0 +1,52 @@
+page-tabs {
+ion-tabs
+{
+.tab-button
+{
+    font-size: 10px;
+    color: #b1b1b1!important;
+	.tab-button-text
+	{
+	font-size: 10px!important;
+	}
+   ion-icon
+   {font-size: 20px!important;height: auto!important;
+   color: #b1b1b1!important;
+   }
+   &#tab-t0-2 , &:nth-child(3)
+   {
+   height: 45px;
+    max-width: 45px;
+    min-width: 45px;
+    min-height: 45px;
+    width: 45px;
+    background: $bggradient;
+    border-radius: 50%;
+    display: inline-block;
+    color: $white!important;
+    margin-top: -50px; 
+	ion-icon
+	{height: auto!important;
+	    font-size: 24px!important;
+  color: $white!important;
+    margin-top: 12px; 
+
+	}
+   }
+ &[aria-selected=true]
+ {
+   background:$secondary;
+     color:$white!important;
+   ion-icon
+   {font-size: 20px;height: auto!important;
+   color:$white!important;
+   }.tab-button-text
+	{
+	font-size: 10px!important;
+	}
+ }
+}
+
+}
+}
+

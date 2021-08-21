@@ -1,0 +1,72 @@
+
+<ion-header>
+
+  <ion-navbar color="primary"> 
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{"Candidates Applied" | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+		<p *ngIf="!is_loaded">Loading...</p>
+  <ng-container *ngIf="is_loaded">
+      <ion-item  lines="none" *ngFor="let location of locations">
+	  
+	   <ion-thumbnail item-start (click)="jobOfferDetails(location)">
+      <img src="{{location.face}}">
+	  <span class="date-icn"> {{location.timeStamp | date}}</span>
+    </ion-thumbnail> 
+
+	  <ion-label>
+	    <h2  (click)="goToProfile(location)">{{location.education.displayName}} </h2>
+		<p address (click)="jobOfferDetails(location)"><ion-icon name="ios-briefcase-outline"></ion-icon> <span> {{location.name}}</span></p>
+		<p address><ion-icon name="ios-mail-outline"></ion-icon> <span>{{location.education.email}} </span></p>
+		<!-- <div accept-reject>
+		 <ion-badge  color="secondary" shape="round" >{{location.status}}</ion-badge>
+		</div> -->
+	  </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="locations == ''">
+    	No records found.
+    </ion-item>
+    </ng-container>
+
+
+	 <!--ion-item *ngFor="let location of locations" style = "background-color : #DCF7C2;">
+	 
+    <ion-thumbnail item-start (click)="jobOfferDetails(location)">
+      <img src="{{location.face}}">
+	  
+    </ion-thumbnail>
+	
+	
+
+	 <div *ngIf="location.photoURL" style = "margin-top:-200px;">
+            <img src="{{location.photoURL}}" width="80" height="80" style="display: block; margin-left: auto; margin-right: auto;background:none;">
+         </div>
+		
+      
+	<div (click)="jobOfferDetails(location)">
+	<ion-badge >
+    <h2>{{location.name}}</h2>
+	</ion-badge>
+	<p>Name • <b>{{location.education.displayName}}</b></p>
+	<p>Occupation • <b>{{location.education.jobcategory}}</b></p>
+	<p>Worked • <b>{{location.education.worked}}</b></p>
+    <p>Posted • <b>{{location.timeStamp | date}}</b></p>
+	<p>Expires • <b>{{location.localdate}}</b></p>
+	<p>Status • <ion-badge><b>{{location.status}}</b></ion-badge></p>
+	</div>
+	
+	
+	<button ion-button style = "float:right;" color="secondary" (click)="goToProfile(location)">View Applicant's Profile</button>
+	
+  </ion-item-->
+
+
+</ion-content>

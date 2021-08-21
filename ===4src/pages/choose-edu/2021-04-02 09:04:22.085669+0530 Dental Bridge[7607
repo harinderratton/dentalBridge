@@ -1,0 +1,35 @@
+2021-04-02 09:04:22.085669+0530 Dental Bridge[76079:594707] this.dataLocation[0].experiencethis.dataLocation[0].experience 12 Years
+2021-04-02 09:04:22.501198+0530 Dental Bridge[76079:594707] -MXFdLMoBv3LRFTBO2CA
+2021-04-02 09:04:22.917920+0530 Dental Bridge[76079:594707] {"address":"Chandigarh, India","category":"all","description":"1234","education":{"birthday":"2021-04-01","displayName":"Demo Indiit","education":"Masters","email":"demouser085@gmail.com","europeResult":"Male","finished":"2019","id":"-MXBjTybDnSLAi6LovVP","jobcategory":"Accounting","maximum":"13","minimum":"12","reverseOrder":-1617268961341,"started":"2015","timeStamp":1617268961492,"uid":"kNWRDtbGy5ekPCpTj45S8nTejBr2","userComment":"I am applying to this job","worked":"7"},"employer_id":"P8ePe0QMyaYLcFHEJ9gkqIPt1pq1","experience":"12 Years","face":"https://i.ibb.co/fQ1qN5x/download-1.jpg","id":"-MXFdLMoBv3LRFTBO2CA","job_id":"-MWmuZfydm2KFFtFIuoy","localdate":"datestring","maxsalary":"2000","minsalary":"1000","name":"new","phone":"9876543210","resume":"https://firebasestorage.googleapis.com/v0/b/dental-bridge-7249f.appspot.com/o/Products%20Image%2Fsample.pdf?alt=media&token=a466d85e-a669-457a-884f-f76604ec0c96","reverseOrder":-1617334462083,"status":"PENDING","timeStamp":1617334462274,"user_uid":"kNWRDtbGy5ekPCpTj45S8nTejBr2"}
+2021-04-02 09:04:22.920508+0530 Dental Bridge[76079:594707] 130000000 12 Years
+2021-04-02 09:04:22.922407+0530 Dental Bridge[76079:594707] {"address":"Chandigarh, India","category":"all","description":"1234","education":{"birthday":"2021-04-01","displayName":"Demo Indiit","education":"Masters","email":"demouser085@gmail.com","europeResult":"Male","finished":"2019","id":"-MXBjTybDnSLAi6LovVP","jobcategory":"Accounting","maximum":"13","minimum":"12","reverseOrder":-1617268961341,"started":"2015","timeStamp":1617268961492,"uid":"kNWRDtbGy5ekPCpTj45S8nTejBr2","userComment":"I am applying to this job","worked":"7"},"employer_id":"P8ePe0QMyaYLcFHEJ9gkqIPt1pq1","experience":"12 Years","face":"https://i.ibb.co/fQ1qN5x/download-1.jpg","id":"-MXFdLMoBv3LRFTBO2CA","job_id":"-MWmuZfydm2KFFtFIuoy","localdate":"datestring","maxsalary":"2000","minsalary":"1000","name":"new","phone":"9876543210","resume":"https://firebasestorage.googleapis.com/v0/b/dental-bridge-7249f.appspot.com/o/Products%20Image%2Fsample.pdf?alt=media&token=a466d85e-a669-457a-884f-f76604ec0c96","reverseOrder":-1617334462083,"status":"PENDING","timeStamp":1617334462274,"user_uid":"kNWRDtbGy5ekPCpTj45S8nTejBr2"}
+2021-04-02 09:04:22.923530+0530 Dental Bridge[76079:594707] WARN: FIREBASE WARNING: Exception was thrown by user callback. ionic://localhost/build/vendor.js:61274:24
+ionic://localhost/build/vendor.js:61320:41
+ionic://localhost/build/vendor.js:97096:15
+ionic://localhost/build/vendor.js:61303:23
+ionic://localhost/build/vendor.js:61262:33
+ionic://localhost/build/vendor.js:79621:45
+ionic://localhost/build/main.js:4449:40
+ionic://localhost/build/vendor.js:171169:26
+ionic://localhost/build/vendor.js:23766:11
+ionic://localhost/build/vendor.js:174806:38
+ionic://localhost/build/vendor.js:174759:46
+ionic://localhost/build/vendor.js:174743:49
+ionic://localhost/build/vendor.js:68919:51
+[native code]
+ionic://localhost/build/vendor.js:100171:31
+ionic://localhost/build/vendor.js:100165:29
+[native code]
+ionic://localhost/build/vendor.js:100877:24
+ionic://localhost/build/vendor.js:100871:32
+ionic://localhost/build/vendor.js:100772:52
+ionic://localhost/build/vendor.js:101948:27
+ionic://localhost/build/vendor.js:101998:34
+ionic://localhost/build/vendor.js:101895:38
+H@ionic://localhost/build/polyfills.js:3:23955
+onInvokeTask@ionic://localhost/build/vendor.js:5125:43
+ionic://localhost/build/polyfills.js:3:10844
+ionic://localhost/build/polyfills.js:3:16801
+p@ionic://localhost/build/polyfills.js:2:27654
+v@ionic://localhost/build/polyfills.js:2:27894
+2021-04-02 09:04:22.935596+0530 Dental Bridge[76079:594707] THREAD WARNING: ['Console'] took '12.092041' ms. Plugin should use a background thread.

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Add Resume</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<div form-group  uploadresume>
+<label>Upload Resume</label>
+<div resumelist>
+<label for="resume"><ion-icon name="ios-cloud-upload-outline"></ion-icon>
+	<p *ngIf="selected" style="color:green">Selected</p>
+	<span>Upload Resume File Here</span></label>
+
+<input type="file" name="resume" id="resume" style="display:none"  (change)="onChange($event)"/>
+</div>
+</div>
+	<!--ion-item style = "background-color : #DCF7C2;">
+	<ion-badge >
+	<h4><b>PlEASE WRITE ABOUT YOURSELF</b></h4>
+	<h4><b>WHY EMPLOYER MUST CHOOSE YOU</b></h4>
+	<h4><b>WHAT IS YOUR ADVANTAGE</b></h4>
+	</ion-badge>
+	</ion-item>
+	<ion-item style = "background-color : #DCF7C2;">
+    <textarea class="example"  type="text" [(ngModel)]="form.description" name="description" placeholder='Employee Description' style = "width: 100%;height:220px;background-color : #DCF7C2;"></textarea>
+    </ion-item-->
+
+</ion-content>
+
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+	
+	<button round ion-button   text-uppercase block color="primary"  (click)="finish()" style = "width:100%;">Finish</button>
+   
+	<p *ngIf="isError" style="color: red;
+    width: 100%;
+    text-align: center;">Please upload resume</p>
+	</ion-toolbar>
+</ion-footer>

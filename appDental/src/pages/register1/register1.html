@@ -1,0 +1,135 @@
+<ion-header headertrans>
+  <ion-navbar color="white">
+    <!--ion-title>Register</ion-title-->
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<div class="register-form" >
+<div logo>
+ <h1>Create Account</h1>
+  <h2>Create a new account</h2>
+</div>
+      <!--ion-card-->
+         <form #f="ngForm">
+            <ion-list>
+             <div form-group>
+               <label>First Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input placeholder="Enter First Name" required type="text" [(ngModel)]="form.firstName" name="firstname"></ion-input>
+               </ion-item>
+             </div> 
+			    <div form-group>
+               <label>Last Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                 <ion-input placeholder="Enter Last Name" required type="text" [(ngModel)]="form.lastName" name="lastname"></ion-input>
+               </ion-item>
+             </div> 
+			   <div form-group>
+               <label>Email Address</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                 <ion-input  placeholder="Enter Email Address" required type="email" [(ngModel)]="form.email" name="email"></ion-input>
+               </ion-item>
+             </div> 
+			 <div form-group>
+			<label>Phone Number</label>
+			<ion-item lines="none">
+			<ion-label>
+			<ion-icon name="ios-call-outline"></ion-icon>
+			</ion-label>
+			<ion-input required type="text" [(ngModel)]="form.phone" name="phone" placeholder="Enter Phone Number"></ion-input>
+			</ion-item>
+			</div>
+		    	<div form-group>
+				<label>Company Name</label>
+				<ion-item lines="none">
+				<ion-label>
+				<ion-icon name="ios-briefcase-outline"></ion-icon>
+				</ion-label>
+				<ion-input type="text" [(ngModel)]="form.company" name="company" placeholder="Enter Company Name"></ion-input>
+				</ion-item>
+				</div>
+
+				<!-- <div form-group>
+<label>Are You a Recruiter </label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.is_recruiter" name="is_recruiter" placeholder="Select">
+				 <ion-option value="yes"> Yes </ion-option>
+				 <ion-option value="no"> No </ion-option>
+				</ion-select>
+</ion-item>
+</div> -->
+
+
+<!-- <div form-group>
+<label>Company Size</label>
+<ion-item lines="none">
+<ion-label>
+<ion-icon name="ios-briefcase-outline"></ion-icon>
+</ion-label>
+<ion-select [(ngModel)]="form.company_size" name="company_size" placeholder="Select Company Size">
+				 <ion-option value="1-15"> 1 - 15 </ion-option>
+				 <ion-option value="16-50"> 16 - 50 </ion-option>
+				 <ion-option value="51-100"> 51 - 100 </ion-option>
+				</ion-select>
+</ion-item>
+</div> -->
+			    <div form-group>
+               <label>Password</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+                 <ion-input placeholder="Enter Password"  required type="password" [(ngModel)]="form.password" name="password"></ion-input>
+               </ion-item>
+             </div> 
+
+             <div btn-signup class="ion-text-center">
+             
+              <p> <ion-checkbox [(ngModel)]="form.terms" name="terms"></ion-checkbox> I agree to the <a (click)="openInAppBrowser(1)">privacy policy</a> and  <a (click)="openInAppBrowser(2)"> terms of conditions</a></p>
+              </div>
+               <!--ion-item>
+                  <ion-label floating>First Name</ion-label>
+                  <ion-input required type="test" [(ngModel)]="form.firstName" name="firstname"></ion-input>
+               </ion-item-->
+               <!--ion-item>
+                  <ion-label floating>Last Name</ion-label>
+                  <ion-input required type="text" [(ngModel)]="form.lastName" name="lastname"></ion-input>
+               </ion-item-->
+               <!--ion-item>
+                  <ion-label floating>Email</ion-label>
+                  <ion-input required type="email" [(ngModel)]="form.email" name="email"></ion-input>
+               </ion-item-->
+               <!--ion-item>
+                  <ion-label floating>Password</ion-label>
+                  <ion-input required type="password" [(ngModel)]="form.password" name="password"></ion-input>
+               </ion-item-->
+            </ion-list>
+            <div class="error-message">
+               <ion-label color="danger" text-wrap>{{errorRegisterMessage}}</ion-label>
+            </div>
+            <div login-btn>
+               <button  class="login-button" round ion-button block color="secondary" type="submit" class="button button-block button-default" text-uppercase [disabled]="disableRegister" (click)="register()">{{buttonText}}</button>
+               <!--br-->
+               <!--button class="forgot-button" ion-button clear color="danger" type="submit" class="button button-block button-clear" (click)="goToLogin()">Login</button-->
+            </div>
+          <div btn-signup class="ion-text-center">
+          <p>Alreay have an account ? <a (click)="goToLogin()" href="javascript:void(0)">Login Here</a></p>
+          </div>
+
+            <div btn-facebook > 
+                        <button (click)="facebookRestaurantLogin()" round medium icon-start block ion-button class="btn-facebook" >
+                          <span fb-icon><img src="assets/img/fb.png"/></span>  Login With Facebook
+                        </button>
+            </div>
+         </form>
+      <!--/ion-card-->
+   </div>
+
+
+</ion-content>

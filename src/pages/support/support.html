@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+	<button ion-button menuToggle> 
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Support</ion-title>
+	
+	<ion-buttons end>
+	<!-- <button ion-button > 
+      <ion-icon name="notifications" (click)="redirectTo()"></ion-icon>
+    </button> -->
+	
+	</ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<ion-content>
+
+ 
+ 
+<div profilesetting supportbox>
+ 
+   <div [ngSwitch]="profiletab">
+	<ion-list *ngSwitchCase="'Basic'">
+	<form>
+            
+             <div form-group>
+               <label>First Name</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                  <ion-input placeholder="Enter First Name" type="text"   [(ngModel)]="userProfiles.displayName" name="fname"  ></ion-input>
+               </ion-item>
+             </div> 
+
+             <div form-group>
+              <label>Last Name</label>
+               <ion-item>
+                 <ion-label><ion-icon name="ios-person-outline"></ion-icon></ion-label>
+                 <ion-input placeholder="Enter Last Name" type="text" [(ngModel)]="userProfiles.lastName" name="lname"  ></ion-input>
+              </ion-item>
+            </div> 
+
+			   
+			   <div form-group>
+               <label>Email Address</label>
+                <ion-item>
+                  <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+                 <ion-input  placeholder="Enter Email Address"  type="email"  [(ngModel)]="userProfiles.email" name="email"   ></ion-input>
+               </ion-item>
+         </div> 
+
+
+         <div form-group>
+          <label>Tell us your query</label>
+           <ion-item auToHeight>
+             <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+             <ion-textarea rows="4" [(ngModel)]="userProfiles.problem" name="problem"></ion-textarea> 
+
+             
+          </ion-item>
+    </div> 
+
+ 
+    <p class="errorMsg" style="color: red">{{errorRegisterMessage}}</p>
+     
+
+  <button round ion-button btnsubmit text-uppercase block color="secondary"  [disabled]="disableSubmit" (click)="sendEmail()" >
+        {{buttonText}}
+      </button>
+
+      <button round ion-button btnsubmit text-uppercase block color="secondary"  [disabled]="disableSubmit" (click)="cancel()" *ngIf= "isEdit">
+        Cancel
+      </button>
+      
+	</form>
+	
+	
+	
+	</ion-list>
+ 
+	</div>
+  
+  
+   
+</div>
+ 
+</ion-content>

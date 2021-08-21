@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+   <button ion-button menuToggle>
+		  <ion-icon name="menu"></ion-icon>
+		</button>
+    <ion-title>Jobs</ion-title>
+	   <ion-buttons end (click)="goToAddJob()">
+	   <button ion-button postjob round>
+		Post Job
+		</button>
+		</ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+ 
+<p *ngIf="!is_loaded">Loading...</p>
+<ion-list *ngIf="is_loaded">
+
+	<span  *ngFor="let location of locations ; let i = index">
+
+
+		<ion-item-sliding >
+			<ion-item (click)="goToJobDetails(location)">
+			  <ion-thumbnail item-start>
+				 <img src="{{location.face}}">
+			  </ion-thumbnail>
+			  <h2 >{{location.name}}</h2>
+			  <p address>
+				  
+				<img src="assets/img/building.png"/><span>{{location.address}}</span>
+			
+			</p>
+			<p briefcase><img src="assets/img/briefcase.png"/><span>Experience:  {{location.experience}}</span></p>
+				<ion-row salary-apply>
+				 <ion-col  col-6>
+ 
+				 </ion-col>
+				  <ion-col  col-6 class="btn-right">
+				   <button round ion-button >View Detail</button>
+				 </ion-col>
+				</ion-row>
+			</ion-item>
+			<ion-item-options side="right" *ngIf="currentUser?.uid == location.user_id">
+ 
+				<button ion-button (click)="deleteJob(location)" color="danger">
+					<ion-icon name="trash"></ion-icon>
+			  </button>
+			</ion-item-options>
+		  </ion-item-sliding>
+		
+		<span *ngFor="let ad of ads ; let ii = index">
+			<ion-item addlist *ngIf="(i+1) % 3 == 0 && (i== ad.index)" (click)="runAd()">
+				<ion-thumbnail item-start >
+					<img [src]="ad.image">
+				</ion-thumbnail>
+				<h2 style=" 
+				height: 23px;">{{ad.title}}</h2>
+				<p briefcase>{{ad.description}}</p>
+			  </ion-item>
+
+		</span>
+
+
+		  <br>
+
+	</span>
+
+  <ion-item *ngIf="locations == ''">
+  No jobs posted yet.
+  </ion-item>
+</ion-list>
+
+
+ 
+
+</ion-content>

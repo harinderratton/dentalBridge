@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>  
+    <ion-title>Messages</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+<ng-container *ngIf="!loader">
+  <ion-item (click)="goToChatPage(item.fromId, item.roomId)" *ngFor="let item of chat_users"> 
+    <ion-avatar item-start>
+      <img src="{{item.photoURL}}" *ngIf="errors.indexOf(item.photoURL)==-1"/>
+      <img src="assets/images/person.png" *ngIf="errors.indexOf(item.photoURL)>=0"/>
+         
+    </ion-avatar>
+    
+     <h2>{{item.displayName}} {{item.lastName}}<ion-note><ion-icon name="ios-time-outline"></ion-icon> {{item.date  | timeAgo}}</ion-note></h2>
+     <p>{{item.message}}</p>
+    
+    </ion-item>
+
+</ng-container>
+
+ 
+ 
+<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="loader">Loading...</p>
+<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="responseCame && chat_users.length==0">No data found</p>
+ 
+
+</ion-content>

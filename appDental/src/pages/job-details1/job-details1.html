@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>Job Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+<div jobinfo>
+<div jobimg>
+
+ <!-- <ion-badge>${{tech[0]?.minsalary}} - ${{tech[0]?.maxsalary}}</ion-badge>  -->
+</div>
+<!-- <ng-adsense
+			[adClient]="'ca-pub-8514227015105788'"
+			[display]="'inline-block'"
+			[width]="100"
+			[height]="100"
+			></ng-adsense> -->
+<div userimg>
+<img src="{{tech[0]?.face}}"/>
+</div>
+<h2>{{tech[0]?.name}}</h2>
+<p address><img src="assets/img/building.png"/><span>{{tech[0]?.address}}</span></p>
+<p briefcase><img src="assets/img/briefcase.png"/><span>Experience:  {{tech[0]?.experience}}</span></p>
+</div>
+<div jobdetail >
+	<div joblist>
+	   <h2 heading>Job Info</h2>
+           <ion-item>
+			<ion-icon item-start name="ios-briefcase-outline"></ion-icon> 			
+			  <h2>Job Name</h2> 
+			  <p>{{tech[0]?.name}} </p>			
+			</ion-item>
+			<ion-item>
+		
+			<ion-icon item-start name="ios-pin-outline"></ion-icon> 			
+			  <h2>Location</h2> 
+			  <p>{{tech[0]?.address}}</p>			
+			</ion-item>
+			
+			<!-- <ion-item>
+			<ion-icon item-start name="ios-call-outline"></ion-icon> 			
+			  <h2>Phone No</h2> 
+			  <p>{{tech[0]?.phone}}</p>			
+			</ion-item> -->
+			<!-- <ion-item>
+			<ion-icon item-start name="ios-cash-outline"></ion-icon> 			
+			  <h2>Salary</h2> 
+			  <p>${{tech[0]?.minsalary}} - ${{tech[0]?.maxsalary}}</p>			
+			</ion-item> -->
+	</div>
+<div joblist>
+<h2 heading>
+ Job Description
+</h2>
+<p>{{tech[0]?.description}}</p>
+</div>
+</div>
+<!--ion-card>
+  <img src="{{tech[0].face}}"/>
+  <ion-card-content>
+    <ion-card-title>	  
+ {{tech[0].name}}	
+	  <ion-icon icon-big item-right *ngIf = "clicked == true" name="chatbubbles" color = "primary" (click)="chat(group)" style="position:relative; font-size:2em;float:right;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>	
+	  
+	  <ion-icon icon-big item-right *ngIf = "clicked == true" name="call" color = "primary" (click)="call(group)" style="position:relative; font-size:2em;float:right;padding-right:5px;"  >
+							<span style="position:absolute; top:-.3em; left:.5em; font-size:15px !important"></span>
+						</ion-icon>
+	
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+	
+	<p><b>Job Posted</b></p>
+	<p><b>Job Type</b></p>
+	<p><b>Designation</b></p>
+	<p><b>Specializaiont</b></p>
+	<p><b>Last Date of Application</b></p>
+	<p><b>Job Description</b></p>
+	
+  </ion-card-content>
+  
+
+  
+</ion-card-->
+
+</ion-content>
+
+<!--
+<ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+	
+
+	  <button ion-button block  color = "secondary" text-uppercase *ngIf = "clicked == false"  item-end (click)="applyJob(tech[0])">Send Resume</button>
+  
+  <button ion-button block color = "secondary" text-uppercase *ngIf = "clicked == true"  item-end >You have already send resume.</button>
+	</ion-toolbar>
+	
+</ion-footer>
+--->

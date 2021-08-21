@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="primary">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+<div notifications *ngIf="is_loaded">
+	  <ng-container *ngFor="let notis of notifications">
+		  <ion-item (click)="goToJobs()">
+			 <ion-avatar item-start>
+			   <img *ngIf="errors.indexOf(notis.photoURL) == -1" src="{{notis.photoURL}}"/>
+			   <img *ngIf="errors.indexOf(notis.photoURL) >= 0" src="assets/images/person.png"/>
+			 </ion-avatar>
+
+			 <p *ngIf="notis.type==2"> {{notis.displayName}} {{notis.lastName}}  has hired you for {{notis.data_params.job}} job.</p>
+
+			 <p *ngIf="notis.type==3"> {{notis.displayName}} {{notis.lastName}}  has rejected you for {{notis.data_params.job}} job.</p>
+
+			 <ion-note><ion-icon name="time-outline"></ion-icon> {{notis.date | timeAgo}}</ion-note>
+		  </ion-item>
+	  </ng-container>
+ 
+	</div>
+
+	<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="!is_loaded">Loading...</p>
+	<p style="width: 100%; text-align: center; margin-top:  48%;color:lightgrey" *ngIf="notifications.length == 0 && is_loaded">No data found</p>
+</ion-content>
+<!-- // 2- hired, 3- cancelled, 4 - pending -->

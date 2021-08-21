@@ -1,0 +1,65 @@
+page-add-description {
+
+[form-group]
+ {    
+   margin-bottom: 12px;
+ 
+ 
+
+    label {
+    font-size: 15px;
+    margin-left: 44px;
+    position: relative;
+    top: 10px;
+    z-index: 9;
+    background:$white;
+    padding: 0px 7px;
+    color: $grey;
+    font-weight: 500; 
+}
+
+ [resumelist] {
+    border: 2px solid $ltgrey;
+    border-radius: 6px;
+    min-height: 153px;
+	label
+	{    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0px;
+	padding: 15px;
+	   ion-icon
+	   {   
+   	       display: block;
+    margin: 0 auto 5px;
+    font-size: 35px;
+    color: #1f5eb3;
+	   
+	   }
+	   span
+	   {
+	       display: block;
+			text-align: center;
+			font-weight: 400;
+	   }
+	
+	}
+}
+}
+
+
+ion-footer
+{
+ion-toolbar
+{
+padding:3px 15px;
+}
+button
+{
+	min-height: 48px;
+    box-shadow: 5px 5px 20px rgba(32, 79, 144, 0.15)!important ;
+    font-weight: 500!important;
+    font-size: 15px!important;
+}
+}
+}

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "560807104459",
+    "firebase_url": "https://dental-bridge-7249f-default-rtdb.firebaseio.com",
+    "project_id": "dental-bridge-7249f",
+    "storage_bucket": "dental-bridge-7249f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560807104459:android:09389166523e6d0544304e",
+        "android_client_info": {
+          "package_name": "com.job.poster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560807104459-as8ff68t4g28rod1bpjte46jcf2ls27o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9doaQ4f7pds81jC-Y1dhE6D7a2wadHT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560807104459-as8ff68t4g28rod1bpjte46jcf2ls27o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "560807104459-06m518a2eku4qq5jf5h9egiup9lgf8oq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.job.poster"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

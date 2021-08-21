@@ -1,0 +1,119 @@
+page-home {
+.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: none!important;
+    box-shadow: none!important;
+}
+.login-content 
+{
+
+	[btn-facebook]
+	{    text-align:center;
+		button
+		 {min-height: 48px;
+		 --box-shadow:none;
+		font-weight: 500;
+		font-size: 15px;
+		text-transform: Capitalize;
+		background: $fb!important;
+		[fb-icon] {
+			background: #334d82;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			position: absolute;
+			left: 7px;
+			img
+			{
+			height: 20px;
+			margin-top: 7px;
+			}
+		 }
+		}
+	}
+  [logo]
+  { margin-bottom: 40px;
+    margin-top: 40px;
+    text-align:center;
+	img
+	{
+	    height: 45px;
+	}
+	h2
+	{
+	    color: $grey2;
+    font-size: 20px;
+    font-weight: 400;
+	}
+  }
+  [login-btn]
+  {
+    button
+	{
+	min-height: 48px;
+    box-shadow: 5px 5px 20px rgba(32, 79, 144, 0.15);
+    font-weight: 500;
+    font-size: 15px;
+	}
+  }
+  [btn-signup ]
+{  font-size: 15px;
+    color: $grey;
+    font-weight: 500;
+    margin-top: 25px;
+	text-align:center;
+    margin-bottom: 25px;
+ a
+ {  
+ color:$primary;font-weight: 500;
+ text-decoration:none!important;
+ }
+}
+ [form-group]
+ {    
+  margin-bottom: 20px;
+  ion-item{
+  .item-inner
+  {
+  border: none;
+    box-shadow: none!important;
+  }
+       border: 2px solid $ltgrey!important;
+    border-radius: 6px;
+   padding-left: 18px;
+   height: 52px;
+	ion-icon
+	{color:$primary;font-size: 28px;
+	}
+	ion-input
+	{
+	color:$dgrey;
+	}
+}
+ 
+  &[forgot] 
+ {text-align:right;font-size: 16px;
+ a
+ {
+ color:$primary;font-weight: 500;
+ text-decoration:none!important;
+ }
+ }
+    label {
+    font-size: 15px;
+    margin-left: 44px;
+    position: relative;
+    top: 10px;
+    z-index: 9;
+    background:$white;
+    padding: 0px 7px;
+    color: $grey;
+    font-weight: 500;
+}
+}
+}
+}
+
+.errorMsg{
+  color: red;
+ 
+}

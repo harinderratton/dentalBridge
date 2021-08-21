@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-navbar color="primary" text-center>
+	<button slot="start" rigthLoc ion-button menuToggle1 (click)="dismissModal(0)">
+		<ion-icon name="close-circle"></ion-icon>
+	  </button>  
+	  <ion-title>Filter Jobs</ion-title>
+	  <!-- <button slot="end" rigthRoc ion-button menuToggle1 (click)="dismissModal(0)">
+		<ion-icon name="checkmark-done-outline"></ion-icon>
+	  </button>   -->
+	  <ion-icon rigthRoc name="checkmark" (click)="dismissModal(1)"></ion-icon>
+	</ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+    	<h1>Filter jobs</h1>
+
+		<ion-item  class="item-borderless list" *ngIf="isActive">
+			<ion-label style="padding-top: 10px;">Experience</ion-label>
+			
+				<ion-checkbox  [(ngModel)]="filter.isExperience" (ionChange)="checkExperience()"></ion-checkbox>
+				<ion-range color="danger" pin="true" max="20" [(ngModel)]="filter.experience" [disabled]="!filter.isExperience"></ion-range>
+			
+		</ion-item>
+
+
+	  <ion-item class="item-borderless list"  *ngIf="isActive" style="padding-bottom: 10px;">
+		<ion-label >Short Job</ion-label>
+		<ion-checkbox  [(ngModel)]="filter.shortJob"></ion-checkbox>
+	  </ion-item>
+	  
+	  <h1>Sort jobs</h1>
+
+	<ion-list radio-group [(ngModel)]="filter.byDate">
+
+		<ion-list-header>
+			By Date
+		</ion-list-header>
+	
+		<ion-item>
+		  <ion-label>Ascending</ion-label>
+		  <ion-radio value="1"></ion-radio>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Descending</ion-label>
+			<ion-radio value="0"></ion-radio>
+		  </ion-item>
+
+	</ion-list>
+ 
+
+
+	<ion-list mt15 radio-group [(ngModel)]="filter.byAlpabets">
+
+		<ion-list-header>
+			By Alphabets
+		</ion-list-header>
+	
+		<ion-item>
+		  <ion-label>Ascending</ion-label>
+		  <ion-radio value="1"></ion-radio>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Descending</ion-label>
+			<ion-radio value="0"></ion-radio>
+		  </ion-item>
+
+	</ion-list>
+ 
+
+ 
+<!-- <ion-button (click)="clearAll()">
+	Clear Filter & Sort
+</ion-button> -->
+
+<button  class="login-button" round ion-button block color="secondary" (click)="clearAll()" class="button button-block button-default" text-uppercase>Clear Filter & Sort</button>
+</ion-content>
